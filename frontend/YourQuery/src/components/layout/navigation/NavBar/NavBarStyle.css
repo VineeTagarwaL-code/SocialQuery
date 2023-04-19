@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+.logo{
+    height: 125px;
+    cursor: pointer;
+}
+.navbar{
+    background-color: none;
+}
+
+#navbarSupportedContent {
+  width: 20%; /* set the width to 80% of the parent container */
+ 
+}
+
+
+.navbar-collapse{
+    flex-grow: 0;
+
+   
+}
+
+.NavBtn{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    color: #315fd4;
+    cursor: pointer;
+    position: relative;
+}
+
+.NavBtn:before{
+    position: absolute;
+    bottom: 0;
+    content: '';
+    width: 0px;
+    height: 2px;
+    background-color: #315fd4;
+    
+    transition: width 0.3s ease-in-out;
+}
+
+.NavBtn:hover:before {
+    width: 99%;
+  }
