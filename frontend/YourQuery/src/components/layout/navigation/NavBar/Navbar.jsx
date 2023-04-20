@@ -1,9 +1,17 @@
 import React from 'react'
 import './NavBarStyle.css'
 import logo from '../../../../assests/logo.png'
-
+import {  useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLoginClick=()=>{
+    navigate('/login')
+  }
+  const handleSignUpClick=()=>{
+    navigate('/signup')
+  }
   return (
     <nav className="navbar navbar-expand-lg  p-0">
       <div className="container-fluid d-flex  justify-content-between align-items-center  NaVcont">
@@ -16,10 +24,10 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex   w-100 justify-content-evenly">
             <li className="nav-item">
-             <h4 className='NavBtn pb-2'>Login</h4> 
+             <h4 className='NavBtn pb-2' onClick={handleLoginClick}>Login</h4> 
             </li>
             <li className="nav-item">
-            <h4 className='NavBtn pb-2'> Signup</h4> 
+            <h4 className='NavBtn pb-2' onClick={handleSignUpClick}> Signup</h4> 
             </li>
           </ul>
         </div>

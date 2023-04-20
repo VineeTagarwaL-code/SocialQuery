@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Roboto&display=swap');
+.loginForm{
+      
+        background-color: rgb(240, 240, 240);
+        -webkit-box-shadow: 4px -1px 75px 10px rgba(0,0,0,0.44);
+-moz-box-shadow: 4px -1px 75px 10px rgba(0,0,0,0.44);
+box-shadow: 4px -1px 75px 10px rgba(0,0,0,0.44);
+        display: flex;
+        flex-direction: column;
+      
+        align-items: center;
+        width: 500px;
+        height: 700px;
+        border-radius: 20px;
+        margin-top: 5rem;
+}
+
+
+.loginForm >div{
+
+    padding-bottom: 100px;
+}
+.formInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h2{
+    font-size: 45px;
+   color: rgb(21, 130, 255);
+
+font-family: 'Roboto', sans-serif;
+}
+h4{
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(112, 112, 112);
+}
+.form{
+    width: 100%;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+  
+}
+
+
+.errors{
+    color: red;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 9px;
+    font-weight: lighter;
+   
+    
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+     gap: 20px;
+    width: 100%;
+   
+}
+
+input{
+   
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid rgb(117, 117, 117);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    padding:10px;
+    height: 40px;
+}
+
+.formBtn{
+    border: none;
+    background-color: rgb(0, 153, 255);
+    width: 250px;
+    height: 40px;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    font-family: 'Quicksand', sans-serif;
+    margin: auto;
+}
+
+.formBtn:hover{
+    
+    transition: 0.5s ease-in-out;
+}
+
+label{
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 9px;
+    margin-bottom: 2px;
+}
+
+h5{
+   color: rgb(112, 112, 112);
+}
+
+@media (max-width: 575.98px) {
+    .loginForm{
+        width: 350px;
+    }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* CSS styles to be applied */
+
+
+  }
+  
+  /* Medium Devices (768px - 991px) */
+  @media (min-width: 768px) and (max-width: 999.98px) {
+    /* CSS styles to be applied */
+
+  }
+  
+  /* Large Devices (992px - 1199px) */
+  @media (min-width: 1000px) and (max-width: 1199.98px) {
+    /* CSS styles to be applied */
+ 
+  }
+  @media (max-width:1200px) {
+ 
+    
+  }
+  /* Extra Large Devices (1200px and higher) */
+  @media (min-width: 1200px) {
+    /* CSS styles to be applied */
+   
+  }

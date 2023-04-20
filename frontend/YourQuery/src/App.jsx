@@ -1,18 +1,38 @@
-import React from 'react'
-import './App.css'
+  import React from 'react'
+  import './App.css'
 
-//components
-import Navbar from './components/layout/navigation/NavBar/Navbar'
-import Footer from './components/layout/navigation/Footer/Footer'
-import MainPage from './views/MainPage/MainPage'
 
-function App() {
+  import { BrowserRouter as Router , Routes , Route , Link } from 'react-router-dom';
 
-  return (
-    <div className="App">
-      <MainPage/>
-    </div>
-  )
-}
+  //components
 
-export default App
+  import MainPage from './views/MainPage/MainPage'
+  import LoginPage from './views/LoginView/LoginPage'
+import Background from './components/layout/background/Background';
+import SignupPage from './views/SignupView/SignupPAGE';
+
+
+
+
+
+
+  function App() {
+  
+
+    
+
+    return (
+      <Router>
+      <div className="App">
+        <Background/>
+        <Routes>
+        <Route path="/" element={<MainPage/>}/>
+          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/signup" element={<SignupPage/>}/>
+        </Routes>
+      </div>
+      </Router>
+    )
+  }
+
+  export default App
