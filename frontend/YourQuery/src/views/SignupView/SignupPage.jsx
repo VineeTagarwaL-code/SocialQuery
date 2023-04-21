@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../../components/layout/navigation/NavBar/Navbar'
 import Footer from '../../components/layout/navigation/Footer/Footer'
-import Login from '../../components/forms/login/login'
+
+import Signup from '../../components/forms/signup/Signup'
 export default function SignupPage() {
   return (
     <div className='container-auto d-flex flex-column justify-content-between'>
@@ -12,11 +13,9 @@ export default function SignupPage() {
             <h4>Hey Signup below to proceed !</h4>
         </div>
         <div className='form'>
-        <Login/>  {/* this is just the form  */}
+        <Signup/>  {/* this is just the form  */}
         </div>
-        <div className='formFooter'>
-            <h5>Go back to Login ? </h5>
-        </div>
+    
     </div>
     <Footer />
 </div>

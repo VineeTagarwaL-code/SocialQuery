@@ -12,6 +12,9 @@ const SignupSchema = Yup.object().shape({
     .min(7, 'Too Short!')
     .max(12, 'Too Long!')
     .required('Required'),
+ rePass :Yup.string()
+ .oneOf([Yup.ref('password'), null], "Passwords don't match")
+ .required('Required')
 });
  async function handleFormSubmit(name , password){
     try {
@@ -25,11 +28,12 @@ const SignupSchema = Yup.object().shape({
         console.log(e)
     }
 }
-export default function Login() {
+export default function Signup() {
   const formik = useFormik({
     initialValues: {
       name: '',
       password: '',
+      rePass : '',
     },
     validationSchema: SignupSchema,
     onSubmit: values => {
@@ -67,13 +71,30 @@ export default function Login() {
         value={formik.values.password}
       />
       {formik.touched.password && formik.errors.password ? (
-        <p className='errors'>{formik.errors.password}</p>  
+        <span className='errors  mb-0'>{formik.errors.password}</span>  
+      ) : null}
+
+     
+      </div>
+      <div className="form-group">
+      <label htmlFor="rePass">Re-Password</label>
+      <input
+        id="rePass"
+        name="rePass"
+        type="password"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        placeholder="rePass"
+        value={formik.values.password}
+      />
+      {formik.touched.password && formik.errors.password ? (
+        <span className='errors mb-0'>{formik.errors.password}</span>  
       ) : null}
 
      
       </div>
       <button className="formBtn" type="submit">
-        Login
+        Signup
       </button>
     </form>
   );
