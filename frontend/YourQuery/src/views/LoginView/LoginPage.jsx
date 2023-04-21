@@ -3,6 +3,7 @@ import './LoginPage.css'
 import Navbar from '../../components/layout/navigation/NavBar/Navbar'
 import Footer from '../../components/layout/navigation/Footer/Footer'
 import Login from '../../components/forms/login/login'
+import { Link } from 'react-router-dom'
 
 export default function LoginPage() {
     return (
@@ -17,7 +18,7 @@ export default function LoginPage() {
                 <Login/>  {/* this is just the form  */}
                 </div>
                 <div className='formFooter'>
-                    <h5>Dont have an Account ? Signup !</h5>
+                    <h5>Dont have an Account ? <Link to ="/signup" style={{ textDecoration: 'none' }}>Signup !</Link></h5>
                 </div>
             </div>
             <Footer />

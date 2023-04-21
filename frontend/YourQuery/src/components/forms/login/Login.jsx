@@ -9,8 +9,8 @@ const SignupSchema = Yup.object().shape({
     .max(50, 'Too Long!')
     .required('Required'),
   password: Yup.string()
-    .min(7, 'Too Short!')
-    .max(12, 'Too Long!')
+    
+    .max(20, 'Too Long!')
     .required('Required'),
 });
  async function handleFormSubmit(name , password){
@@ -18,8 +18,15 @@ const SignupSchema = Yup.object().shape({
         await axios.post('http://localhost:8000/login', {
             name , password
         }).then((res) => {
-          console.log(res.data)
-
+          if(res.data.status ===1){
+            alert("incorrect")
+          } 
+          else if(res.data.status === 0){
+            console.log("loggedin")
+          }
+          else{
+            alert("server error")
+          }
         })
     } catch (e) {
         console.log(e)

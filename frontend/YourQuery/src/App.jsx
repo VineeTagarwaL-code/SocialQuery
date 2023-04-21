@@ -1,38 +1,30 @@
-  import React from 'react'
-  import './App.css'
+import React from 'react'
+import './App.css'
 
 
-  import { BrowserRouter as Router , Routes , Route , Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-  //components
+//components
 
-  import MainPage from './views/MainPage/MainPage'
-  import LoginPage from './views/LoginView/LoginPage'
+import MainPage from './views/MainPage/MainPage'
+import LoginPage from './views/LoginView/LoginPage'
 import Background from './components/layout/background/Background';
 import SignupPage from './views/SignupView/SignupPAGE';
 
-
-
-
-
-
-  function App() {
-  
-
-    
-
-    return (
-      <Router>
+function App() {
+  return (
+    <Router>
       <div className="App">
-        <Background/>
+        <Background />
         <Routes>
-        <Route path="/" element={<MainPage/>}/>
-          <Route path="/login" element={<LoginPage/>}/>
-          <Route path="/signup" element={<SignupPage/>}/>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
       </div>
-      </Router>
-    )
-  }
+    </Router>
+  )
+}
 
-  export default App
+
+export default App

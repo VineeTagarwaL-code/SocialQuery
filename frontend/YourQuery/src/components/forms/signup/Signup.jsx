@@ -8,9 +8,11 @@ const SignupSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  password: Yup.string()
-    .min(7, 'Too Short!')
-    .max(12, 'Too Long!')
+    password: Yup.string()
+    .matches(
+      /^(?=.*[A-Z])(?=.*[!@#$&])(?=.{8,20})/,
+      'Password must contain at least one uppercase letter, one special character, and be 8-20 characters long.'
+    )
     .required('Required'),
  rePass :Yup.string()
  .oneOf([Yup.ref('password'), null], "Passwords don't match")
@@ -18,10 +20,16 @@ const SignupSchema = Yup.object().shape({
 });
  async function handleFormSubmit(name , password){
     try {
-        await axios.post('http://localhost:8000/login', {
+        await axios.post('http://localhost:8000/signup', {
             name , password
         }).then((res) => {
-          console.log(res.data)
+          console.log(res.data.status)
+          // if(res.data.status === 1){
+          //   alert(res.data.response)
+          // }
+          // else if(res.data.status === 0 ){
+          //   alert(res.data.response)
+          // }
 
         })
     } catch (e) {
@@ -85,10 +93,10 @@ export default function Signup() {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         placeholder="rePass"
-        value={formik.values.password}
+        value={formik.values.rePass}
       />
-      {formik.touched.password && formik.errors.password ? (
-        <span className='errors mb-0'>{formik.errors.password}</span>  
+      {formik.touched.rePass && formik.errors.rePass ? (
+        <span className='errors mb-0'>{formik.errors.rePass}</span>  
       ) : null}
 
      
