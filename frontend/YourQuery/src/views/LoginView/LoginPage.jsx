@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './LoginPage.css'
 import Navbar from '../../components/layout/navigation/NavBar/Navbar'
 import Footer from '../../components/layout/navigation/Footer/Footer'
 import Login from '../../components/forms/login/login'
 import { Link } from 'react-router-dom'
+import Loading from '../../utils/Loader/Loading'
 
-export default function LoginPage() {
+export default function LoginPage(props) {
+    const [isLoading , setIsLoading]= useState(false)
     return (
         <div className='container-auto d-flex flex-column justify-content-between'>
             <Navbar />
@@ -15,13 +17,16 @@ export default function LoginPage() {
                     <h4>Hey login below to proceed !</h4>
                 </div>
                 <div className='form'>
-                <Login/>  {/* this is just the form  */}
+                <Login setIsLoading = {setIsLoading} setIsLoggedIn={props.setIsLoggedIn}/>  {/* this is just the form  */}
                 </div>
                 <div className='formFooter'>
                     <h5>Dont have an Account ? <Link to ="/signup" style={{ textDecoration: 'none' }}>Signup !</Link></h5>
                 </div>
             </div>
-            <Footer />
+            {
+                isLoading? <Loading/> : null
+            }
+          
         </div>
     )
 }

@@ -25,8 +25,9 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
     },
-    Role: {
-        type: String
+    role: {
+        type: String,
+        
     }
 
 })
@@ -73,8 +74,8 @@ app.post("/signup", async (req, res) => {
       });
   
       await user.save();
-  
-      return res.json({ status:0,response: user });
+      const session = uuidv4();
+      return res.json({ status:0,response: user,session : session  });
     } catch (error) {
       console.error(error);
   

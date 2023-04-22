@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -14,36 +15,53 @@ const SignupSchema = Yup.object().shape({
     .max(20, 'Too Long!')
     .required('Required'),
 });
+export default function Login(props) {
+
+
+
+ 
+  const navigate = useNavigate();
+
+  function navigateToHome(){
+    props.setIsLoading(true)
+   setTimeout(()=>{
+    props.setIsLoading(false)
+    navigate("/")
+   }, 2000)
+  }
  async function handleFormSubmit(name , password){
-    try {
-        await axios.post('http://localhost:8000/login', {
-            name , password
-        }).then((res) => {
+  try {
+      await axios.post('http://localhost:8000/login', {
+          name , password
+      }).then((res) => {
 
+        
+        if(res.data.status ===1){
           
-          if(res.data.status ===1){
-            
-          } 
-          else if(res.data.status === 0){
-            console.log(res)
+        } 
+        else if(res.data.status === 0){
+          
 
-            //if the response is 1 , user is logged in we will set a session id in the logged in and name of the user
+          //if the response is 1 , user is logged in we will set a session id in the logged in and name of the user
+      
+          localStorage.setItem("User" , res.data.response.name)
+          localStorage.setItem("SessionId" , res.data.session)
+          props.setIsLoggedIn(true)
+          navigateToHome()
 
-            localStorage.setItem("User" , res.data.response.name)
-            localStorage.setItem("SessionId" , res.data.session)
-
-            //
-            console.log("loggedin")
-          }
-          else{
-            alert("server error")
-          }
-        })
-    } catch (e) {
-        console.log(e)
-    }
+          //
+          
+        }
+        else{
+          alert("server error")
+        }
+      })
+  } catch (e) {
+      console.log(e)
+  }
 }
-export default function Login() {
+
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -55,6 +73,14 @@ export default function Login() {
       handleFormSubmit(values.name , values.password);
     },
   });
+
+  useEffect(()=>{
+    
+    setTimeout(()=>{
+      formik.setFieldError('name', '');
+      formik.setFieldError('password', '');
+    },10000)
+  },[formik.errors.name ,formik.errors.password ])
 
   return (
     <form onSubmit={formik.handleSubmit}>

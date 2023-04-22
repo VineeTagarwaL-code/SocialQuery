@@ -2,6 +2,8 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -18,25 +20,38 @@ const SignupSchema = Yup.object().shape({
  .oneOf([Yup.ref('password'), null], "Passwords don't match")
  .required('Required')
 });
- async function handleFormSubmit(name , password){
+
+export default function Signup(props) {
+  const navigate = useNavigate();
+
+  
+  function navigateToHome(){
+    props.setIsLoading(true)
+   setTimeout(()=>{
+    props.setIsLoading(false)
+    navigate("/")
+   }, 2000)
+  }
+
+  async function handleFormSubmit(name , password){
     try {
         await axios.post('http://localhost:8000/signup', {
             name , password
         }).then((res) => {
-          console.log(res.data.status)
-          // if(res.data.status === 1){
-          //   alert(res.data.response)
-          // }
-          // else if(res.data.status === 0 ){
-          //   alert(res.data.response)
-          // }
+          if(res.data.status === 0){
+            props.setIsLoggedIn(true);
+            localStorage.setItem("User" , res.data.response.name)
+            localStorage.setItem("SessionId" , res.data.session)
+            navigateToHome()
+          }
 
         })
     } catch (e) {
         console.log(e)
     }
 }
-export default function Signup() {
+
+
   const formik = useFormik({
     initialValues: {
       name: '',

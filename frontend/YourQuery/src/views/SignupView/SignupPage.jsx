@@ -1,9 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Navbar from '../../components/layout/navigation/NavBar/Navbar'
-import Footer from '../../components/layout/navigation/Footer/Footer'
+
 
 import Signup from '../../components/forms/signup/Signup'
-export default function SignupPage() {
+import Loading from '../../utils/Loader/Loading'
+
+
+export default function SignupPage(props) {
+  const [isLoading , setIsLoading]= useState(false)
   return (
     <div className='container-auto d-flex flex-column justify-content-between'>
     <Navbar />
@@ -13,11 +17,13 @@ export default function SignupPage() {
             <h4>Hey Signup below to proceed !</h4>
         </div>
         <div className='form'>
-        <Signup/>  {/* this is just the form  */}
+        <Signup setIsLoading = {setIsLoading} setIsLoggedIn={props.setIsLoggedIn}/>  {/* this is just the form  */}
         </div>
     
     </div>
-    <Footer />
+    {
+                isLoading? <Loading/> : null
+            }
 </div>
   )
 }
