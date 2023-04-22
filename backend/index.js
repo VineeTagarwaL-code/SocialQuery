@@ -1,4 +1,4 @@
-
+const { v4: uuidv4 } = require('uuid');
 const express = require('express')
 const cors = require('cors')
 
@@ -10,6 +10,8 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/myquery').then(() => console.log("connected")).catch((error) => {
     console.log(error)
@@ -35,9 +37,11 @@ app.post("/login", async (req, res) => {
     try {
        
       const { name, password } = req.body;
+      
       const check = await User.findOne({ name, password: password });
       if(check ){
-        return res.json({status:0 , response:check })
+        const session = uuidv4();
+        return res.json({status:0 , response:check , session : session  })
       }
       else{
         return res.json({status:1})

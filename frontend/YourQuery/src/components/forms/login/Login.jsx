@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
+
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
@@ -18,10 +19,20 @@ const SignupSchema = Yup.object().shape({
         await axios.post('http://localhost:8000/login', {
             name , password
         }).then((res) => {
+
+          
           if(res.data.status ===1){
-            alert("incorrect")
+            
           } 
           else if(res.data.status === 0){
+            console.log(res)
+
+            //if the response is 1 , user is logged in we will set a session id in the logged in and name of the user
+
+            localStorage.setItem("User" , res.data.response.name)
+            localStorage.setItem("SessionId" , res.data.session)
+
+            //
             console.log("loggedin")
           }
           else{
