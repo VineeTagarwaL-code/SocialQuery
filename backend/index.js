@@ -45,7 +45,7 @@ app.post("/login", async (req, res) => {
         return res.json({status:0 , response:check , session : session  })
       }
       else{
-        return res.json({status:1})
+        return res.json({status:1 ,response:"Incorect User / Password"})
       }
     } catch (e) {
       console.log(e)
@@ -62,7 +62,7 @@ app.post("/signup", async (req, res) => {
 
     const checkName = await User.findOne({name})
     if (checkName) {
-      return res.status(409).json({ status:1,response: "Name Already Exists" });
+      return res.json({ status:1,response: "Name Already Exists" });
     }
   
     try {

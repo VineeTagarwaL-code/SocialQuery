@@ -1,8 +1,35 @@
 .App{
     z-index: 1;
+    background-color: #F7F9FE;
 }
 
-
-    
-
+@media (max-width: 575.98px) {
   
+ 
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* CSS styles to be applied */
+
+
+}
+
+/* Medium Devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 999.98px) {
+    /* CSS styles to be applied */
+
+}
+
+/* Large Devices (992px - 1199px) */
+@media (min-width: 1000px) and (max-width: 1199.98px) {
+    /* CSS styles to be applied */
+
+}
+
+@media (max-width:1200px) {}
+
+/* Extra Large Devices (1200px and higher) */
+@media (min-width: 1200px) {
+    /* CSS styles to be applied */
+
+}

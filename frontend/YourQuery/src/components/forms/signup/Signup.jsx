@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -13,7 +13,7 @@ const SignupSchema = Yup.object().shape({
     password: Yup.string()
     .matches(
       /^(?=.*[A-Z])(?=.*[!@#$&])(?=.{8,20})/,
-      'Password must contain at least one uppercase letter, one special character, and be 8-20 characters long.'
+      'Need one uppercase letter, one special character, and be 8-20 characters long.'
     )
     .required('Required'),
  rePass :Yup.string()
@@ -45,6 +45,13 @@ export default function Signup(props) {
             navigateToHome()
           }
 
+          else if(res.data.status === 1 ){
+            formik.setFieldValue("name","")
+          
+        
+            props.setIsError(res.data.response)
+          }
+
         })
     } catch (e) {
         console.log(e)
@@ -64,6 +71,15 @@ export default function Signup(props) {
       handleFormSubmit(values.name , values.password);
     },
   });
+  useEffect(()=>{
+    
+    setTimeout(()=>{
+      formik.setFieldError('name', '');
+      formik.setFieldError('password', '');
+      formik.setFieldError('rePass', '');
+    },5000)
+  },[formik.errors.name ,formik.errors.password  , formik.errors.rePass])
+
 
   return (
     <form onSubmit={formik.handleSubmit}>

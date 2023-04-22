@@ -37,7 +37,9 @@ export default function Login(props) {
 
         
         if(res.data.status ===1){
-          
+          formik.setFieldValue("name","")
+          formik.setFieldValue("password","")
+          props.setIsError(res.data.response)
         } 
         else if(res.data.status === 0){
           
@@ -79,7 +81,7 @@ export default function Login(props) {
     setTimeout(()=>{
       formik.setFieldError('name', '');
       formik.setFieldError('password', '');
-    },10000)
+    },5000)
   },[formik.errors.name ,formik.errors.password ])
 
   return (
