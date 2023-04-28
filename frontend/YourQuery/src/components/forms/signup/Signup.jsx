@@ -88,6 +88,7 @@ export default function Signup(props) {
       <input
         type="text"
         name="name"
+        
         id="name"
         placeholder="Username"
         onChange={formik.handleChange}
@@ -102,6 +103,7 @@ export default function Signup(props) {
       <label htmlFor="password">Password</label>
       <input
         id="password"
+      
         name="password"
         type="password"
         onChange={formik.handleChange}

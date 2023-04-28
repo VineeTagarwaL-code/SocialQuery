@@ -31,6 +31,16 @@ const userSchema = new mongoose.Schema({
     }
 
 })
+
+const CategorySchema = new mongoose.Schema({
+  Cat_name: {
+      type: String,
+      required: true,
+  }
+
+})
+
+const Category = new mongoose.model("Category", CategorySchema, "Categories")
 const User = new mongoose.model("User", userSchema, "users")
 
 app.post("/login", async (req, res) => {
@@ -83,6 +93,23 @@ app.post("/signup", async (req, res) => {
     }
   });
   
+
+  app.get("/getCategory", async (req, res) => {
+
+ 
+        try {
+            const data = await Category.find()
+            if (data) {
+               return res.json({ status:  0 , response:data })
+            } else {
+               return  res.json({ status : 1  })
+            }
+
+        } catch (e) {
+            console.log(e)
+        }
+
+})
   app.listen(8000, () => {
     console.log("started")
 })

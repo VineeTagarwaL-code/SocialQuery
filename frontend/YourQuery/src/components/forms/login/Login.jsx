@@ -92,6 +92,7 @@ export default function Login(props) {
         type="text"
         name="name"
         id="name"
+        
         placeholder="Username"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -105,7 +106,8 @@ export default function Login(props) {
       <label htmlFor="password">Password</label>
       <input
         id="password"
-        name="password"
+        name="password" 
+        
         type="password"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
