@@ -2,7 +2,7 @@ import React,{useState , useEffect} from 'react'
 import './LoginPage.css'
 import Navbar from '../../components/layout/navigation/NavBar/Navbar'
 import Footer from '../../components/layout/navigation/Footer/Footer'
-import Login from '../../components/forms/login/login'
+import Login from '../../components/forms/login/Login'
 import { Link } from 'react-router-dom'
 
 import Loading from '../../utils/Loader/Loading'

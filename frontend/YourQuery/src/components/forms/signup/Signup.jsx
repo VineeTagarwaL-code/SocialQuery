@@ -42,6 +42,7 @@ export default function Signup(props) {
             props.setIsLoggedIn(true);
             localStorage.setItem("User" , res.data.response.name)
             localStorage.setItem("SessionId" , res.data.session)
+            localStorage.setItem("Role" , "User")
             navigateToHome()
           }
 

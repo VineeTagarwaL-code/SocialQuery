@@ -40,6 +40,26 @@ const CategorySchema = new mongoose.Schema({
 
 })
 
+
+const QuestionSchema = new mongoose.Schema({
+  Question: {
+      type: String,
+      required: true,
+  },
+  Category: {
+      type: String,
+      required: true,
+  },
+  CreatedBy: {
+      type: String,
+      required: true
+  },
+  approved: {
+      type: Boolean,
+  },
+
+})
+const Questions = new mongoose.model("Question", QuestionSchema, "Questions")
 const Category = new mongoose.model("Category", CategorySchema, "Categories")
 const User = new mongoose.model("User", userSchema, "users")
 
@@ -110,6 +130,42 @@ app.post("/signup", async (req, res) => {
         }
 
 })
+
+
+app.post("/addQuestion", async (req, res) => {
+  
+
+      try {
+          const { question , cat , approve , user } = req.body
+          console.log( question , cat , approve , user)
+          const check = await Questions.findOne({ Question: question, Category: cat })
+          if (check) {
+              res.json({ message: "Question Exists already" })
+          } else {
+
+
+              // const result = Math.random().toString(36).substring(2,7);
+
+              const newQ = new Questions({
+                  Question: question,
+                  CreatedBy: user,
+                  Category: cat,
+                  approved: approve,
+                  
+              })
+
+              newQ.save().then(() => {
+                  console.log("saved")
+                  res.json({status :  0 , response : "Created" })
+              })
+          }
+      } catch (e) { 
+        console.error(e)
+      }
+
+})
+
+
   app.listen(8000, () => {
     console.log("started")
 })
