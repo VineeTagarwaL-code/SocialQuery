@@ -32,7 +32,7 @@ export default function SignupPage(props) {
           />  {/* this is just the form  */}
         </div>
         {
-          isLoading ? <div className='Loader' > <Loading /></div> : null
+          isLoading ?<Loading />: null
         }
       </div>
       <div className='error'>

@@ -2,7 +2,7 @@
 
 
 .loginPage{
-  
+     padding-inline: 0;
     height: 100vh;
 }
 .loginForm {

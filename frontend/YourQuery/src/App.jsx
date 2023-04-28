@@ -1,6 +1,5 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import './App.css'
-
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -9,20 +8,22 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MainPage from './views/MainPage/MainPage'
 import LoginPage from './views/LoginView/LoginPage'
 
-import SignupPage from './views/SignupView/SignupPAGE';
+import SignupPage from './views/SignupView/SignupPage';
 
 function App() {
 
-  const [isLoggedIn , setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 
   return (
     <Router>
       <div className="App">
-        
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path="/login"
+            element={
+              <LoginPage setIsLoggedIn={setIsLoggedIn} />
+            } />
           <Route path="/signup" element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
         </Routes>
       </div>

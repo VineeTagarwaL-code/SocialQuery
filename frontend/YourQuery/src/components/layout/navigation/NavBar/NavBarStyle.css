@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Roboto&family=Source+Sans+Pro&display=swap');
 .logo{
     height: 100px;
-    
+   
     cursor: pointer;
 }
 .navbar{
-    background-color: none;
+   
+    background-color: transparent;
 }
 
 #navbarSupportedContent {
@@ -43,3 +44,35 @@
 .NavBtn:hover:before {
     width: 99%;
   }
+
+
+  .userP{
+   
+    display: flex;
+    width: fit-content;
+    align-items: center;
+  }
+
+.LoggedAs{
+    outline: none;
+    border: none;
+    background-color: #2B61EC;
+    color: white;
+    border-radius: 20px;
+    height: 30px;
+     font-family: 'Quicksand', sans-serif;
+     margin-right: 15px;
+}
+
+.user{
+    color:#2B61EC ;
+    font-size: 25px;
+    
+
+}
+
+.NavLogouts{
+    font-family: 'Source Sans Pro', sans-serif;
+    cursor: pointer;
+    text-decoration: underline;
+}
