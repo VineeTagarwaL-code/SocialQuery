@@ -166,6 +166,22 @@ app.post("/addQuestion", async (req, res) => {
 })
 
 
+app.get("/getQuestion", async (req, res) => {
+  try {
+    
+      Questions.find().then((response) => {
+          res.json({response:response})
+       
+      }).catch((e)=>[
+          res.json({response:"NA"})
+      ])
+    
+     
+  } catch (e) {
+      console.log(e);
+  }
+});
+
   app.listen(8000, () => {
     console.log("Server Started at port 8000")
 })

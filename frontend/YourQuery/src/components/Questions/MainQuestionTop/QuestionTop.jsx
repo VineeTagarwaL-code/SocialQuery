@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './QuestionTop.css'
 import Loading from '../../../utils/Loader/Loading'
-export default function QuestionTop() {
+export default function QuestionTop({setIsNewQ}) {
     const role = localStorage.getItem("Role")
     const user = localStorage.getItem("User")
     const [categories, setCategories] = useState([])
@@ -14,6 +14,9 @@ export default function QuestionTop() {
 
     const [IsQuestionAdded  , setIsQuestionAdded] = useState(false)
     const [IsQuestionExists , setIsQuestionExists] = useState(false)
+
+
+   
     let approve;
 
     if (role === "User") {
@@ -46,6 +49,7 @@ export default function QuestionTop() {
             }).then((res) => {
                if(res.data.status === 0 ){
                 setIsQuestionAdded(true)
+                setIsNewQ(true)
                 setQuestionAdded()
                
                }else if(res.data.status === 1){
