@@ -13,7 +13,7 @@ app.use(cors())
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/myquery').then(() => console.log("connected")).catch((error) => {
+mongoose.connect('mongodb://127.0.0.1:27017/myquery').then(() => console.log("Mongodb connected")).catch((error) => {
     console.log(error)
 })
 
@@ -137,10 +137,10 @@ app.post("/addQuestion", async (req, res) => {
 
       try {
           const { question , cat , approve , user } = req.body
-          console.log( question , cat , approve , user)
+          
           const check = await Questions.findOne({ Question: question, Category: cat })
           if (check) {
-              res.json({ message: "Question Exists already" })
+              res.json({ status :  1, response : "Question Exists" })
           } else {
 
 
@@ -155,8 +155,8 @@ app.post("/addQuestion", async (req, res) => {
               })
 
               newQ.save().then(() => {
-                  console.log("saved")
-                  res.json({status :  0 , response : "Created" })
+                 
+                  res.json({ status :  0 , response : "Created" })
               })
           }
       } catch (e) { 
@@ -167,5 +167,5 @@ app.post("/addQuestion", async (req, res) => {
 
 
   app.listen(8000, () => {
-    console.log("started")
+    console.log("Server Started at port 8000")
 })

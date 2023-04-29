@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './QuestionTop.css'
+import Loading from '../../../utils/Loader/Loading'
 export default function QuestionTop() {
     const role = localStorage.getItem("Role")
     const user = localStorage.getItem("User")
     const [categories, setCategories] = useState([])
 
     const [question, setQuestion] = useState("")
-    const [cat, setCat] = useState("")
+    const [cat, setCat] = useState("Security")
 
+
+
+    const [IsQuestionAdded  , setIsQuestionAdded] = useState(false)
+    const [IsQuestionExists , setIsQuestionExists] = useState(false)
     let approve;
 
     if (role === "User") {
@@ -17,18 +22,43 @@ export default function QuestionTop() {
         approve = true
     }
 
+
+    const setQuestionAdded = ()=>{
+        setTimeout(() => {
+            setQuestion("")
+            setIsQuestionAdded(false)
+        }, 2000);
+    }
+
+    const setQuestionExists = ()=>{
+        setTimeout(() => {
+            setIsQuestionExists(false)
+            setQuestion("")
+        }, 2000);
+    }
+
+
   //saving the question added by the user 
     const handleSaveQ = async () => {
         try {
             await axios.post("http://localhost:8000/addQuestion", {
                 question, cat, approve, user
             }).then((res) => {
-               console.log(res)
+               if(res.data.status === 0 ){
+                setIsQuestionAdded(true)
+                setQuestionAdded()
+               
+               }else if(res.data.status === 1){
+                setIsQuestionExists(true)
+                setQuestionExists()
+              
+               }
             })
         } catch (e) {
             console.error(e)
         }
     }
+
 
 
     //handling the change in state 
@@ -57,8 +87,13 @@ export default function QuestionTop() {
             console.error(e)
         }
     }
+   
+
+
+
     useEffect(() => {
         getCategories()
+    
     }, [])
 
 
@@ -107,12 +142,20 @@ export default function QuestionTop() {
                             </div>
                             <div className='modalForm'>
                                 <label className='m-0 labelT' > Question</label>
-                                <input type="text" placeholder='Question' onChange={handleTextChange}></input>
+                                <input type="text" placeholder='Question' onChange={handleTextChange} value={question}></input>
+                                {
+                                IsQuestionExists ? <p className='m-0 ps-1 Qexists text-danger'>Question Exists</p> : null
+                            }
                             </div>
+                          
                         </div>
                         <div className="modal-footer">
+                            
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Save</button>
+                            {
+                                IsQuestionAdded ?<button type="button" className="btn btn-success">Saved</button> : <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Save</button>
+                            }
+                            
                         </div>
                     </div>
                 </div>
