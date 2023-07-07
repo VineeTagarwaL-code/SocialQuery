@@ -180,7 +180,44 @@ app.get("/getQuestion", async (req, res) => {
   } catch (e) {
       console.log(e);
   }
+
+
+
 });
+
+
+app.get("/getQuery", async (req, res) => {
+  try {
+      const { query } = req.query;
+      const searchWord = query;
+      const searchRegex = new RegExp(searchWord, 'i') ;
+      Questions.find({ Question: searchRegex }).then((response) => {
+          res.json({response:response})
+       
+      }).catch((e)=>[
+          res.json({response:"NA"})
+      ])
+    
+     
+  } catch (e) {
+      console.log(e);
+  }
+});
+
+
+app.get("/CatReqQuery" , async(req , res)=>{
+  try{
+    const{catName} = req.query;
+    
+    Questions.find({Category:catName}).then((response)=>{
+      res.json({response:response})
+    }).catch((e)=>{
+      res.json({response : "NA"})
+    })
+  }catch (e) {
+    console.log(e);
+}
+})
 
   app.listen(8000, () => {
     console.log("Server Started at port 8000")

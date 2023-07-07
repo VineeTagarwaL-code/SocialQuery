@@ -14,17 +14,11 @@ export default function MainPage() {
   //query inputted by user to be used a regex in the databse 
 
   const [query, setQuery] = useState("")
+  const [NewQ, setIsNewQ] = useState(false)//for the new question added by the user
+  const [catReq, setCatReq] = useState("")//for the category request of the user
 
 
-
-  const [NewQ, setIsNewQ] = useState(false)
-
-
-
-
-
-
-  
+  //primary function for fetching the question from the database
   const getQuestionList = async () => {
     try {
       await axios.get("http://localhost:8000/getQuestion").then((res) => {
@@ -36,23 +30,14 @@ export default function MainPage() {
     }
   }
 
-
-
-
-
-
-
+  //the "updater" , updates if new question is present 
   if (NewQ) {
     getQuestionList()
     setIsNewQ(false)
   }
 
-  // useEffect(() => {
-  //   getQueryList()
-  // }, [query])
 
-
-
+  //the primary useEffect for the fetching the credentials from localstorage
   useEffect(() => {
     const id = localStorage.getItem("SessionId")
     getQuestionList()
@@ -61,26 +46,50 @@ export default function MainPage() {
     }
   }, [])
 
-  const getQuery= async ()=>{ 
+
+  //for fetching the query matching the regex exp of the input field in QuestionTop.jsx
+  const getQuery = async () => {
     try {
       axios.get('http://localhost:8000/getQuery', { params: { query: query } }).then((res) => {
 
-      setQuestionList(res.data.response)
-   
-   
-  })
+        setQuestionList(res.data.response)
+
+
+      })
     } catch (e) {
       console.error(e)
     }
   }
-  useEffect(()=>{
+
+
+  //for fetching the query matching the category buttons in QuestionTop.jsx
+  const CatReqQuery = async () => {
+    try {
+      await axios.get('http://localhost:8000/CatReqQuery', { params: { catName: catReq } }).then((res) => {
+        setQuestionList(res.data.response)
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  //useEffect for calling the function on updation
+  useEffect(() => {
     getQuery()
-  } , [query])
+  }, [query])
+
+  useEffect(() => {
+
+    CatReqQuery()
+  }, [catReq])
+
+
+
   return (
     <div className='container-auto d-flex  flex-column main'>
       <Navbar isLoggedIn={isLoggedIn} />
       <div className='container body mt-5'>
-        <QuestionTop setIsNewQ={setIsNewQ} setQuery={setQuery} isLoggedIn = {isLoggedIn} />
+        <QuestionTop setIsNewQ={setIsNewQ} setQuery={setQuery} isLoggedIn={isLoggedIn} setCatReq={setCatReq} getQuery={getQuery} />
         <QuestionList questionList={questionList} />
       </div>
       <Footer />

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './QuestionTop.css'
 import Loading from '../../../utils/Loader/Loading'
-export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn}) {
+export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatReq , getQuery}) {
     const role = localStorage.getItem("Role")
     const user = localStorage.getItem("User")
     const [categories, setCategories] = useState([])
@@ -115,13 +115,16 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn}) {
         </option>
     ));
 
- 
+ const handleCatClick = (Cat_name) =>{
+    setCatReq(Cat_name);
+ }
 
 
     return (
         <div className='container top d-flex flex-column justify-content-evenly p-4'>
             <div className='headers d-flex justify-content-between align-items-center'>
                 <h2 className='headerQ'>Questions</h2>
+                <div>
                 {
                     isLoggedIn ? 
                         <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal" >
@@ -130,6 +133,16 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn}) {
                     : 
                     null
                 }
+                    {
+                    isLoggedIn ? 
+                        <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal1" >
+                        Add Category
+                               </button>
+                    : 
+                    null
+                }
+                </div>
+         
              
             </div>
             <div className='filter'>
@@ -141,10 +154,11 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn}) {
                 onChange={(e)=>{setQuery(e.target.value)}}
                 />
                 <div className='categoriesList d-flex flex-start mt-4 flex-wrap align-items-center'>
+                    <button className='categories' onClick={getQuery}>All</button>
                     {
                         categories.map((item) => {
                             return (
-                                <button className='categories' key={item.id}>{item.Cat_name}</button>
+                                <button className='categories' key={item.id} onClick={()=>handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
                             )
                         })
                     }
@@ -183,7 +197,34 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn}) {
                     </div>
                 </div>
             </div>
+{/* let this be for admin section for a while now  */}
 
+            <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Add Category</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <div className='modalForm'>
+                                <label className='m-0 labelT'> Category Name</label>
+                                <select onChange={handleSelect}>{optionItems}</select>
+                            </div>
+                           
+                          
+                        </div>
+                        <div className="modal-footer">
+                       
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            {
+                                IsQuestionAdded ?<button type="button" className="btn btn-success">Saved</button> : <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Save</button>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
   
        
 
