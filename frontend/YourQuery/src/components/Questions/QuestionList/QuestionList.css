@@ -1,42 +1,48 @@
-.QuestionList{
-   
-    
+.QuestionList {
+    user-select: none;
+
     background-color: transparent;
 }
 
-.QuestionCont{
+.QuestionCont {
     background-color: white;
-    -webkit-box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
--moz-box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
-box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
+    -webkit-box-shadow: -1px 11px 18px 3px rgba(0, 0, 0, 0.06);
+    -moz-box-shadow: -1px 11px 18px 3px rgba(0, 0, 0, 0.06);
+    box-shadow: -1px 11px 18px 3px rgba(0, 0, 0, 0.06);
     margin-bottom: 20px;
     border-radius: 15px;
 }
 
-.Btnb{
-    font-family: 'Quicksand', sans-ser if;
+.Btnb {
+    font-family: 'Quicksand', sans-serif;
     font-size: 18px;
+    cursor: none;
     border: none;
     border-radius: 10px;
 }
 
-.catBtn{
-    background-color: rgb(37, 209, 37);
-    color: white;
-    
+.Question {
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(44, 44, 44);
 }
 
-.crtBtn{
+.catBtn {
+    background-color: rgb(37, 209, 37);
+    color: white;
+
+}
+
+.crtBtn {
     background-color: #d6d6d6;
 }
 
-.copyBtn{
+.copyBtn {
     color: rgb(0, 0, 0);
 }
 
-.copyBtn:hover{
-    background-color:rgb(37, 209, 37) ;
+.copyBtn:hover {
+    background-color: rgb(37, 209, 37);
     color: white;
-    transition: .5s ease-in-out;
+    transition: .5s ease;
 
 }

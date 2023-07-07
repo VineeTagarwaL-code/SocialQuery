@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './QuestionTop.css'
 import Loading from '../../../utils/Loader/Loading'
-export default function QuestionTop({setIsNewQ}) {
+export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn}) {
     const role = localStorage.getItem("Role")
     const user = localStorage.getItem("User")
     const [categories, setCategories] = useState([])
@@ -40,27 +40,33 @@ export default function QuestionTop({setIsNewQ}) {
         }, 2000);
     }
 
-
+ let userlogged = true;
   //saving the question added by the user 
     const handleSaveQ = async () => {
-        try {
-            await axios.post("http://localhost:8000/addQuestion", {
-                question, cat, approve, user
-            }).then((res) => {
-               if(res.data.status === 0 ){
-                setIsQuestionAdded(true)
-                setIsNewQ(true)
-                setQuestionAdded()
-               
-               }else if(res.data.status === 1){
-                setIsQuestionExists(true)
-                setQuestionExists()
-              
-               }
-            })
-        } catch (e) {
-            console.error(e)
+        
+        if(isLoggedIn){
+            try {
+                await axios.post("http://localhost:8000/addQuestion", {
+                    question, cat, approve, user
+                }).then((res) => {
+                   if(res.data.status === 0 ){
+                    setIsQuestionAdded(true)
+                    setIsNewQ(true)
+                    setQuestionAdded()
+                   
+                   }else if(res.data.status === 1){
+                    setIsQuestionExists(true)
+                    setQuestionExists()
+                  
+                   }
+                })
+            } catch (e) {
+                console.error(e)
+            }
+        }else{
+            userlogged=false;
         }
+   
     }
 
 
@@ -109,18 +115,31 @@ export default function QuestionTop({setIsNewQ}) {
         </option>
     ));
 
-
+ 
 
 
     return (
         <div className='container top d-flex flex-column justify-content-evenly p-4'>
             <div className='headers d-flex justify-content-between align-items-center'>
                 <h2 className='headerQ'>Questions</h2>
-                <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal">Add Question</button>
+                {
+                    isLoggedIn ? 
+                        <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                        Add Question
+                               </button>
+                    : 
+                    null
+                }
+             
             </div>
             <div className='filter'>
                 <h4 className='filter px-2'>Filter By :</h4>
-                <input type='text' placeholder='Text' className='inputFilter' />
+                <input
+                type='text' 
+                placeholder='Text' 
+                className='inputFilter' 
+                onChange={(e)=>{setQuery(e.target.value)}}
+                />
                 <div className='categoriesList d-flex flex-start mt-4 flex-wrap align-items-center'>
                     {
                         categories.map((item) => {
@@ -154,7 +173,7 @@ export default function QuestionTop({setIsNewQ}) {
                           
                         </div>
                         <div className="modal-footer">
-                            
+                       
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             {
                                 IsQuestionAdded ?<button type="button" className="btn btn-success">Saved</button> : <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Save</button>
@@ -164,6 +183,10 @@ export default function QuestionTop({setIsNewQ}) {
                     </div>
                 </div>
             </div>
+
+  
+       
+
         </div>
     )
 }
