@@ -27,13 +27,15 @@
 }
 
 .catBtn {
-    background-color: rgb(37, 209, 37);
+    background-color:#2B61EC;
     color: white;
 
 }
 
 .crtBtn {
-    background-color: #d6d6d6;
+    color: rgb(95, 95, 95);
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .copyBtn {

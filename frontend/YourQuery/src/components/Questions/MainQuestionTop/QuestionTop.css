@@ -9,16 +9,19 @@ box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
 
 
 .headerQ{
-    color: #2a2b2e;
+    color: #2B61EC;
+    font-weight: BOLD;
     user-select: none;
-     font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 
 }
 .Qexists{
     font-size: 15px;
 }
 .filter{
+    font-family: 'Quicksand', sans-serif;
    font-size: 1.5rem;
+   color: #2B61EC;
 
 }
 
@@ -51,12 +54,15 @@ box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
 .categories{
   border: none;
   font-size: 15px;
+  font-weight: semi-bold;
+  
   margin-left: 10px;
   border-radius: 20px ;
-  background-color: #d6d6d6;
+  background-color: #2458dc;
   cursor: pointer;
+  padding: 5px 10px 5px 10px;
   margin-bottom: 20px;
-  color: #2a2b2e;
+  color: WHITE;
 }
 
 .modalForm{
