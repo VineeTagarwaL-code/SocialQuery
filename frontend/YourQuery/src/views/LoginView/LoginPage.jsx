@@ -22,7 +22,7 @@ export default function LoginPage(props) {
             <Navbar />
             <div className='container loginForm pt-4 pb-4' >
                 <div className='formInfo'>
-                    <h2 className='pb-3'>Agent Login </h2>
+                    <h2 className='pb-3'>User Login </h2>
                     <h4>Hey login below to proceed !</h4>
                 </div>
                 <div className='form'>

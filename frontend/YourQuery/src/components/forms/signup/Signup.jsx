@@ -91,7 +91,7 @@ export default function Signup(props) {
         name="name"
         
         id="name"
-        placeholder="Username"
+        placeholder="Enter your Username"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.name}
@@ -109,7 +109,7 @@ export default function Signup(props) {
         type="password"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        placeholder="Password"
+        placeholder="Enter your Password"
         value={formik.values.password}
       />
       {formik.touched.password && formik.errors.password ? (
@@ -119,14 +119,14 @@ export default function Signup(props) {
      
       </div>
       <div className="form-group">
-      <label htmlFor="rePass">Re-Password</label>
+      <label htmlFor="rePass">Re-enter Password</label>
       <input
         id="rePass"
         name="rePass"
         type="password"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        placeholder="rePass"
+        placeholder="Enter your password again "
         value={formik.values.rePass}
       />
       {formik.touched.rePass && formik.errors.rePass ? (
