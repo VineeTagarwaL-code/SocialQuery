@@ -166,6 +166,39 @@ app.post("/addQuestion", async (req, res) => {
 })
 
 
+app.post("/addCategory", async (req, res) => {
+  
+
+  try {
+      const { AddCat } = req.body
+      
+      const check = await Category.findOne({Cat_name : AddCat})
+      if (check) {
+          res.json({ status :  1, response : "Category already Exists" })
+      } else {
+
+
+          // const result = Math.random().toString(36).substring(2,7);
+
+          const newC = new Category({
+            Cat_name:AddCat
+              
+          })
+
+          newC.save().then(() => {
+             
+              res.json({ status :  0 , response : "Created" })
+          })
+      }
+  } catch (e) { 
+    console.error(e)
+  }
+
+})
+
+
+
+
 app.get("/getQuestion", async (req, res) => {
   try {
     

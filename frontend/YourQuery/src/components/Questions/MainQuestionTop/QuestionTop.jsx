@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './QuestionTop.css'
 import Loading from '../../../utils/Loader/Loading'
-export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatReq , getQuery}) {
+export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq, getQuery }) {
     const role = localStorage.getItem("Role")
     const user = localStorage.getItem("User")
     const [categories, setCategories] = useState([])
@@ -12,11 +12,14 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
 
 
 
-    const [IsQuestionAdded  , setIsQuestionAdded] = useState(false)
-    const [IsQuestionExists , setIsQuestionExists] = useState(false)
+    const [IsQuestionAdded, setIsQuestionAdded] = useState(false)
+    const [IsQuestionExists, setIsQuestionExists] = useState(false)
+
+    const [IsCategoryAdded, setIsCategoryAdded] = useState(false)
 
 
-   
+    const [AddCat, setAddCat] = useState("")
+
     let approve;
 
     if (role === "User") {
@@ -26,47 +29,47 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
     }
 
 
-    const setQuestionAdded = ()=>{
+    const setQuestionAdded = () => {
         setTimeout(() => {
             setQuestion("")
             setIsQuestionAdded(false)
         }, 2000);
     }
 
-    const setQuestionExists = ()=>{
+    const setQuestionExists = () => {
         setTimeout(() => {
             setIsQuestionExists(false)
             setQuestion("")
         }, 2000);
     }
 
- let userlogged = true;
-  //saving the question added by the user 
+    let userlogged = true;
+    //saving the question added by the user 
     const handleSaveQ = async () => {
-        
-        if(isLoggedIn){
+
+        if (isLoggedIn) {
             try {
                 await axios.post("http://localhost:8000/addQuestion", {
                     question, cat, approve, user
                 }).then((res) => {
-                   if(res.data.status === 0 ){
-                    setIsQuestionAdded(true)
-                    setIsNewQ(true)
-                    setQuestionAdded()
-                   
-                   }else if(res.data.status === 1){
-                    setIsQuestionExists(true)
-                    setQuestionExists()
-                  
-                   }
+                    if (res.data.status === 0) {
+                        setIsQuestionAdded(true)
+                        setIsNewQ(true)
+                        setQuestionAdded()
+
+                    } else if (res.data.status === 1) {
+                        setIsQuestionExists(true)
+                        setQuestionExists()
+
+                    }
                 })
             } catch (e) {
                 console.error(e)
             }
-        }else{
-            userlogged=false;
+        } else {
+            userlogged = false;
         }
-   
+
     }
 
 
@@ -82,10 +85,10 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
         setCat(e.target.value)
     }
 
-   ///
+    ///
 
 
-   // getting the categories 
+    // getting the categories 
     const getCategories = async () => {
         try {
             await axios.get("http://localhost:8000/getCategory").then((res) => {
@@ -97,14 +100,16 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
             console.error(e)
         }
     }
-   
+
 
 
 
     useEffect(() => {
         getCategories()
-    
-    }, [])
+        setIsCategoryAdded(false)
+    }, [IsCategoryAdded])
+
+
 
 
     //option list for select
@@ -115,50 +120,74 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
         </option>
     ));
 
- const handleCatClick = (Cat_name) =>{
-    setCatReq(Cat_name);
- }
+    const handleCatClick = (Cat_name) => {
+        setCatReq(Cat_name);
+    }
 
 
+    const handleSaveCat = async () => {
+        //will be sending a backend request soon 
+        if (isLoggedIn) {
+            try {
+                await axios.post("http://localhost:8000/addCategory", {
+                    AddCat
+                }).then((res) => {
+                    if (res.data.status === 0) {
+                        console.log(res)
+                        setIsCategoryAdded(true)
+
+
+                    } else if (res.data.status === 1) {
+                        console.log(res)
+                    }
+                })
+            } catch (e) {
+                console.error(e)
+            }
+        } else {
+            userlogged = false;
+        }
+    }
     return (
         <div className='container top d-flex flex-column justify-content-evenly p-4'>
             <div className='headers d-flex justify-content-between align-items-center'>
                 <h2 className='headerQ'>Questions</h2>
                 <div>
-                {
-                    isLoggedIn ? 
-                        <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal" >
-                        Add Question
-                               </button>
-                    : 
-                    null
-                }
                     {
-                    isLoggedIn ? 
-                        <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal1" >
-                        Add Category
-                               </button>
-                    : 
-                    null
-                }
+                        isLoggedIn ?
+                            <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                Add Question
+                            </button>
+                            :
+                            null
+                    }
+                    {
+                        isLoggedIn ?
+                            <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal1" >
+                                Add Category
+                            </button>
+                            :
+                            null
+                    }
                 </div>
-         
-             
+
+
             </div>
             <div className='filter'>
                 <h4 className='filter px-2'>Filter By :</h4>
                 <input
-                type='text' 
-                placeholder='Text' 
-                className='inputFilter' 
-                onChange={(e)=>{setQuery(e.target.value)}}
+                    type='text'
+                    placeholder='Text'
+                    className='inputFilter'
+                    onChange={(e) => { setQuery(e.target.value) }}
+                    
                 />
                 <div className='categoriesList d-flex flex-start mt-4 flex-wrap align-items-center'>
                     <button className='categories' onClick={getQuery}>All</button>
                     {
                         categories.map((item) => {
                             return (
-                                <button className='categories' key={item.id} onClick={()=>handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
+                                <button className='categories' key={item.id} onClick={() => handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
                             )
                         })
                     }
@@ -179,25 +208,25 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
                             </div>
                             <div className='modalForm'>
                                 <label className='m-0 labelT' > Question</label>
-                                <input type="text" placeholder='Question' onChange={handleTextChange} value={question}></input>
+                                <input type="text" placeholder='Add a Question' onChange={handleTextChange} value={question} className='Add__inputs' ></input>
                                 {
-                                IsQuestionExists ? <p className='m-0 ps-1 Qexists text-danger'>Question Exists</p> : null
-                            }
+                                    IsQuestionExists ? <p className='m-0 ps-1 Qexists text-danger'>Question Exists</p> : null
+                                }
                             </div>
-                          
+
                         </div>
                         <div className="modal-footer">
-                       
+
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             {
-                                IsQuestionAdded ?<button type="button" className="btn btn-success">Saved</button> : <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Save</button>
+                                IsQuestionAdded ? <button type="button" className="btn btn-success">Added</button> : <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Add</button>
                             }
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
-{/* let this be for admin section for a while now  */}
+            {/* let this be for admin section for a while now  */}
 
             <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
@@ -209,24 +238,25 @@ export default function QuestionTop({setIsNewQ , setQuery , isLoggedIn , setCatR
                         <div className="modal-body">
                             <div className='modalForm'>
                                 <label className='m-0 labelT'> Category Name</label>
-                                <select onChange={handleSelect}>{optionItems}</select>
+                                <input type='text' value={AddCat} className='Add__inputs' onChange={(e) => setAddCat(e.target.value)}></input>
+
                             </div>
-                           
-                          
+
+
                         </div>
                         <div className="modal-footer">
-                       
+
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             {
-                                IsQuestionAdded ?<button type="button" className="btn btn-success">Saved</button> : <button type="button" className="btn btn-primary" onClick={handleSaveQ}>Save</button>
+                                IsCategoryAdded ? <button type="button" className="btn btn-success">Added</button> : <button type="button" className="btn btn-primary" onClick={handleSaveCat}>Add</button>
                             }
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
-  
-       
+
+
 
         </div>
     )

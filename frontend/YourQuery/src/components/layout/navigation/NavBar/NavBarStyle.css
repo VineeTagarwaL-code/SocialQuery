@@ -54,19 +54,22 @@
   }
 
 .LoggedAs{
-    outline: none;
+    /* outline: none;
     border: none;
     background-color: #2B61EC;
     color: white;
     border-radius: 20px;
-    height: 30px;
+    height: 20px;
      font-family: 'Quicksand', sans-serif;
-     margin-right: 15px;
+     margin-right: 15px; */
 }
 
 .user{
-    color:#2B61EC ;
-    font-size: 25px;
+    color:white ;
+    align-self: center;
+    padding-bottom: 7px;
+    font-size: 20px;
+    margin-left: 10px;
     
 
 }
@@ -74,13 +77,33 @@
 .NavLogouts{
     font-family: 'Source Sans Pro', sans-serif;
     cursor: pointer;
+    color:#2B61EC ;
     text-decoration: underline;
     
 }
 
 #Title__name{
    
-    color:#2B61EC ;
+    color:#2B61EC; 
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
     font-size: 30px;
   
+}
+
+.logged__As{
+    font-family: 'Quicksand', sans-serif;
+    color: white !important;
+    background-color: #2B61EC;
+    border-radius: 20px;
+    justify-content: space-evenly;
+    padding: 1px;
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 200px;
+}
+
+#user__nav{
+ color: white !important;
+ font-size: 20px;
 }
