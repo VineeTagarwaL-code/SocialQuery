@@ -44,7 +44,11 @@ export default function Navbar(props) {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex   w-100 justify-content-evenly align-items-center">
               <li className="nav-item userP d-flex ">
-                <button className='LoggedAs'>Logged As : </button> <h4 className='m-0 user'>{userName}</h4>
+                <div className='d-flex align-items-center logged__As'>
+                <h3 id='user__nav'>User :</h3>
+                 <h4 className='m-0 user'>{userName}</h4>
+                </div>
+               
               </li>
               <li className="nav-item">
               <h4 className='NavLogouts m-0' onClick={handleLogoutClick}> Logout</h4>

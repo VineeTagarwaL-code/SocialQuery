@@ -24,8 +24,12 @@ box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
 
 .inputFilter{
      border: 1px solid rgb(179, 179, 179);
-    font-size: 15px;
+    font-size: 20px;
     width: 100%;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding-left: 10px;
+    
 }
 .AddQ{
     outline: none;
@@ -76,9 +80,10 @@ label{
 }
 
 select{
-
+    margin-top: 5px;
     border-radius: 20px;
     height: 40px;
+    padding-left: 10px;
 }
 
 
@@ -90,6 +95,15 @@ option{
 .labelT{
       font-family: 'Quicksand', sans-serif;
       font-weight: 400;
+}
+
+
+.Add__inputs{
+   
+  border: 1px solid rgb(115, 115, 115);
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px;
+    padding-left: 10px;
 }
 
 @media (max-width: 575.98px) {
