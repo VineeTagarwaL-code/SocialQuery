@@ -7,7 +7,7 @@ import Loading from '../../utils/Loader/Loading'
 import Errors from '../../utils/Errors/Errors'
 
 
-export default function SignupPage(props) {
+ function SignupPage(props) {
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(null)
 
@@ -21,7 +21,7 @@ export default function SignupPage(props) {
       <Navbar />
       <div className='container loginForm pt-4 pb-4' >
         <div className='formInfo'>
-          <h2 className='pb-3'>Agent Signup </h2>
+          <h2 className='pb-3'>User Signup </h2>
           <h4>Hey Signup below to proceed !</h4>
         </div>
         <div className='form'>
@@ -44,3 +44,4 @@ export default function SignupPage(props) {
     </div>
   )
 }
+export default SignupPage;

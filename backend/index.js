@@ -13,7 +13,7 @@ app.use(cors())
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/myquery').then(() => console.log("Mongodb connected")).catch((error) => {
+mongoose.connect('mongodb://127.0.0.1:27017/YourQuery').then(() => console.log("Mongodb connected")).catch((error) => {
     console.log(error)
 })
 

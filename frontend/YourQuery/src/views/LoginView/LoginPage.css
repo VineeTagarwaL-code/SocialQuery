@@ -83,7 +83,7 @@ form {
 }
 
 input {
-
+  
     border-radius: 20px;
     outline: none;
     border: 1px solid rgb(117, 117, 117);
@@ -91,6 +91,8 @@ input {
     font-weight: 500;
     padding: 10px;
     height: 40px;
+    margin-top: 5px;
+    margin-bottom: 10px ;
 }
 
 .formBtn {
@@ -115,7 +117,8 @@ input {
 
 label {
     font-family: 'Quicksand', sans-serif;
-    margin-left: 9px;
+    margin-left: 5px;
+
     margin-bottom: 2px;
 }
 

@@ -94,7 +94,7 @@ export default function Login(props) {
         name="name"
         id="name"
         
-        placeholder="Username"
+        placeholder="Enter your Username"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.name}
@@ -112,7 +112,7 @@ export default function Login(props) {
         type="password"
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        placeholder="Password"
+        placeholder="Enter your Password"
         value={formik.values.password}
       />
       {formik.touched.password && formik.errors.password ? (

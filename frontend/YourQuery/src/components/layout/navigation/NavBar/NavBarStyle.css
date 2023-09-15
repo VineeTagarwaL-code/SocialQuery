@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Roboto&family=Source+Sans+Pro&display=swap');
 .logo{
-    height: 100px;
-   
+    height: 80px;
+    padding-bottom: 8px;
     cursor: pointer;
 }
 .navbar{
@@ -76,4 +76,11 @@
     cursor: pointer;
     text-decoration: underline;
     
+}
+
+#Title__name{
+   
+    color:#2B61EC ;
+    font-size: 30px;
+  
 }

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React , { useState , lazy , Suspense } from 'react'
 import './App.css'
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 //components
 
-import MainPage from './views/MainPage/MainPage'
-import LoginPage from './views/LoginView/LoginPage'
 
-import SignupPage from './views/SignupView/SignupPage';
+
+const Login  =  React.lazy(()=> import('./views/LoginView/LoginPage'))
+const Main = React.lazy(()=> import('./views/MainPage/MainPage'))
+const Loading = React.lazy(()=> import('./utils/Loader/Loading'))
+const Signup = React.lazy(() => import('./views/SignupView/SignupPage'));
 
 function App() {
 
@@ -19,12 +21,9 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login"
-            element={
-              <LoginPage setIsLoggedIn={setIsLoggedIn} />
-            } />
-          <Route path="/signup" element={<SignupPage setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/" element={<React.Suspense fallback={<Loading/>}> <Main /></React.Suspense>} />
+          <Route path="/login"element={<React.Suspense fallback={<Loading/>}> <Login setIsLoggedIn={setIsLoggedIn} /> </React.Suspense>  } />
+          <Route path="/signup" element={<React.Suspense fallback={<Loading/>}><Signup setIsLoggedIn={setIsLoggedIn} /></React.Suspense>} />
         </Routes>
       </div>
     </Router>
