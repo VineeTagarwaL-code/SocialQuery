@@ -9,7 +9,7 @@ box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
 
 
 .headerQ{
-    color: #2B61EC;
+    color: var(--main-color);
     font-weight: BOLD;
     user-select: none;
     font-family: 'Quicksand', sans-serif;
@@ -37,7 +37,7 @@ box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
 .AddQ{
     outline: none;
     border: none;
-    background-color: #2B61EC;
+    background-color: var(--main-color);
     color: white;
     border-radius: 20px;
     height: 40px;
@@ -58,7 +58,7 @@ box-shadow: -1px 11px 18px 3px rgba(0,0,0,0.06);
   
   margin-left: 10px;
   border-radius: 20px ;
-  background-color: #2458dc;
+  background-color: var(--main-color);
   cursor: pointer;
   padding: 5px 10px 5px 10px;
   margin-bottom: 20px;
@@ -112,6 +112,9 @@ option{
     padding-left: 10px;
 }
 
+.filter{
+    color: var(--main-color);
+}
 @media (max-width: 575.98px) {
   
     .headerQ{

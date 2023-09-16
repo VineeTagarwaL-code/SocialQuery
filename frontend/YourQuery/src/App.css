@@ -1,3 +1,10 @@
+:root{
+    --main-color:#4741FF;
+    --primary-color: #2B61EC;
+    --main-font:'Quicksand', sans-serif;
+    --red : rgb(240, 89, 89);
+}
+
 .App{
     z-index: 1;
     height: 100%;

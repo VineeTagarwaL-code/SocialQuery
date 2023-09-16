@@ -84,7 +84,7 @@
 
 #Title__name{
    
-    color:#2B61EC; 
+    color:var(--primary-color);
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: bold;
     font-size: 30px;
