@@ -1,19 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import './QuestionList.css';
 
-export default function QuestionList({ questionList }) {
-  const questions = questionList;
+export default function QuestionList({questionList ,  setQuestionList}) {
+  const questions = questionList
+  const url = "http://localhost:8000/";
+ 
+
 
   // Create an array to track the toggle state for each item
+
+
   const [addRemarksToggled, setAddRemarksToggled] = useState(new Array(questions.length).fill(false));
-  
+
   const [liked, setLiked] = useState(new Array(questions.length).fill(false)); // Track likes for each item
 
-  const[remark , setRemark] = useState("")
-  const[validRemark , setValidRemarks] = useState(true)
+  const [remark, setRemark] = useState("")
+  const [validRemark, setValidRemarks] = useState(new Array(questions.length).fill(false))
 
-  const handleAddRemark=async(e)=>{
-   console.log(remark)
+  const[likedUP, setLikedUp] = useState(true)
+  const getQuestionList = async () => {
+    try {
+      await axios.get("http://localhost:8000/getQuestion").then((res) => {
+        setQuestionList(res.data.response)
+
+      })
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+
+  
+  
+  
+  const handleAddRemark = async (e) => {
+    console.log(remark)
   }
   const handleRemarkToggle = (index) => {
     // Create a copy of the toggle state array
@@ -33,6 +55,36 @@ export default function QuestionList({ questionList }) {
     setLiked(updatedLikes);
   };
 
+  const handleLike = async (id, user) => {
+    console.log(id)
+    try {
+      await axios.post(`${url}api/v1/like`, {
+        id, user
+      }).then((res) => {
+        if (res.data.status == 200) {
+        // Update the 'liked' state for the specific item
+        const updatedLikes = [...liked];
+        updatedLikes[index] = !updatedLikes[index];
+        setLiked(updatedLikes);
+
+        // Update the 'items.like' value in the 'questions' state array
+        const updatedQuestions = [...questions];
+        updatedQuestions[index].like = res.data.newLikeValue; // Assuming the API returns the new 'like' value
+        setQuestionList(updatedQuestions);
+        } else {
+          console.log(res)
+        }
+      })
+    } catch (err) {
+      console.log("Like Error", err)
+    }
+  }
+  const handleValidToggle = (index) => {
+    const updatedValid = [...validRemark]
+
+    updatedValid[index] = !updatedValid[index]
+    setValidRemarks(updatedValid)
+  }
   function handleClick(question) {
     const textToCopy = question;
     navigator.clipboard
@@ -59,14 +111,17 @@ export default function QuestionList({ questionList }) {
               >
                 <ion-icon name="add-outline" size="medium" /> Add Remarks
               </p>
-              
-              <p className='likes' onClick={() => handleLikeToggle(index)}>
+
+              <p className='likes' onClick={() => {
+                handleLikeToggle(index)
+                handleLike(items._id, items.CreatedBy)
+              }}>
                 {liked[index] ? (
                   <ion-icon name="thumbs-up" size="small" />
                 ) : (
                   <ion-icon name="thumbs-up-outline" size="small" />
                 )}
-                1
+                {items.like}
               </p>
             </div>
 
@@ -90,16 +145,16 @@ export default function QuestionList({ questionList }) {
                   onChange={(e) => {
                     if (/^.+$|^.{1,500}$/.test(e.target.value)) {
                       setValidRemarks(true); // Update the state if it matches the pattern
-                    }else{
+                    } else {
                       setValidRemarks(false)
                     }
                     setRemark(e.target.value)
                   }}
                 />
                 {
-                 !validRemark ?(
-                <p id='error__top'><ion-icon name="alert-circle" className="alert" color="red"></ion-icon>Should not be empty</p>  
-                 ) : null
+                  !validRemark[index] ? (
+                    <p id='error__top'><ion-icon name="alert-circle" className="alert" color="red"></ion-icon>Should not be empty</p>
+                  ) : null
                 }
                 <div id='remarks__btnCont'>
                   <p
@@ -107,8 +162,8 @@ export default function QuestionList({ questionList }) {
                     onClick={(e) => {
                       handleAddRemark();
                     }}
-                  
-                    
+
+
                   >
                     <ion-icon name="add-outline" size="medium" /> Add
                   </p>

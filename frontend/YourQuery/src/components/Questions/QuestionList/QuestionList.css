@@ -60,7 +60,15 @@
    background-color: rgb(234, 234, 234);
    font-family: var(--main-font);
    font-weight: 500;
+   border: 2px solid transparent;
 
+}
+
+.remarks:hover{
+    border: 2px solid rgb(234, 234, 234);
+    background-color: transparent;
+    scale: 1.1;
+    transition: .5s ease;
 }
 
 #remarks__btnCont{
@@ -80,6 +88,8 @@
     gap: 10px;
     padding: 10px 10px 10px 10px;
 }
+
+
 .remarks__btn{
     padding:3px 0px 3px 0px;
     display: flex;
@@ -118,6 +128,11 @@
     justify-content: center;
     align-items: center;
 
+}
+
+.likes:hover{
+    scale: 1.3;
+    transition: .5s ease;
 }
 #remarks__input{
     height: 40px;
