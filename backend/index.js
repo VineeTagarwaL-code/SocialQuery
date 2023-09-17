@@ -43,22 +43,42 @@ const CategorySchema = new mongoose.Schema({
 
 const QuestionSchema = new mongoose.Schema({
   Question: {
-      type: String,
-      required: true,
+    type: String,
+    required: true,
   },
   Category: {
-      type: String,
-      required: true,
+    type: String,
+    required: true,
   },
   CreatedBy: {
-      type: String,
-      required: true
+    type: String,
+    required: true,
   },
   approved: {
-      type: Boolean,
+    type: Boolean,
   },
+  like: {
+    type: Number,
+    default: 0,
+  },
+  remarks: [
+    {
+      text: {
+        type: String,
+        required: true,
+      },
+      createdBy: {
+        type: String,
+        required: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
+});
 
-})
 const Questions = new mongoose.model("Question", QuestionSchema, "Questions")
 const Category = new mongoose.model("Category", CategorySchema, "Categories")
 const User = new mongoose.model("User", userSchema, "users")
@@ -251,6 +271,39 @@ app.get("/CatReqQuery" , async(req , res)=>{
     console.log(e);
 }
 })
+
+
+//will modify the above code 
+
+
+app.post("/api/v1/like", async (req, res) => {
+  try {
+    const { id, user } = req.body;
+
+    const question = await Questions.findOne({ _id: id }); // Use findOne to retrieve a single question by its _id
+
+    if (!question) {
+      return res.status(404).json({ message: "Question not found" });
+    }
+
+    // Now you can work with the 'question' object
+    console.log(question);
+    const result = await Questions.updateOne(
+      { _id: id },
+      { $inc: { like: 1} }
+    );
+    // Perform any actions related to 'question' here
+
+    if (result.nModified === 0) {
+      return res.status(404).json({ message: "Question not found" });
+    }
+
+    res.status(200).json({ message: "Like processed successfully" });
+  } catch (e) {
+
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
   app.listen(8000, () => {
     console.log("Server Started at port 8000")
