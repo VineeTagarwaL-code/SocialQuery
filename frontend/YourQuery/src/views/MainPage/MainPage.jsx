@@ -20,6 +20,7 @@ export default function MainPage() {
 
   //primary function for fetching the question from the database
   const getQuestionList = async () => {
+
     try {
       await axios.get("http://localhost:8000/getQuestion").then((res) => {
         setQuestionList(res.data.response)
@@ -90,7 +91,7 @@ export default function MainPage() {
       <Navbar isLoggedIn={isLoggedIn} />
       <div className='container body mt-5'>
         <QuestionTop setIsNewQ={setIsNewQ} setQuery={setQuery} isLoggedIn={isLoggedIn} setCatReq={setCatReq} getQuery={getQuery} />
-        <QuestionList questionList={questionList} />
+        <QuestionList questionList={questionList} getQuestionList={getQuestionList}/>
       </div>
       <Footer />
 
