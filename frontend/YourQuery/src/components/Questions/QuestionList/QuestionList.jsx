@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './QuestionList.css';
 
-export default function QuestionList({questionList ,  setQuestionList}) {
+export default function QuestionList({questionList ,  setQuestionList , getQuestionList}) {
   const questions = questionList
   const url = "http://localhost:8000/";
- 
+  const activeUser = localStorage.getItem("User")
 
-
+  
   // Create an array to track the toggle state for each item
 
 
@@ -18,17 +18,7 @@ export default function QuestionList({questionList ,  setQuestionList}) {
   const [remark, setRemark] = useState("")
   const [validRemark, setValidRemarks] = useState(new Array(questions.length).fill(false))
 
-  const[likedUP, setLikedUp] = useState(true)
-  const getQuestionList = async () => {
-    try {
-      await axios.get("http://localhost:8000/getQuestion").then((res) => {
-        setQuestionList(res.data.response)
 
-      })
-    } catch (e) {
-      console.error(e)
-    }
-  }
 
 
   
@@ -37,6 +27,8 @@ export default function QuestionList({questionList ,  setQuestionList}) {
   const handleAddRemark = async (e) => {
     console.log(remark)
   }
+
+
   const handleRemarkToggle = (index) => {
     // Create a copy of the toggle state array
     const updatedToggles = [...addRemarksToggled];
@@ -45,6 +37,8 @@ export default function QuestionList({questionList ,  setQuestionList}) {
     // Update the state with the new array
     setAddRemarksToggled(updatedToggles);
   };
+
+
 
   const handleLikeToggle = (index) => {
     // Create a copy of the liked state array
@@ -55,36 +49,39 @@ export default function QuestionList({questionList ,  setQuestionList}) {
     setLiked(updatedLikes);
   };
 
+
+
   const handleLike = async (id, user) => {
-    console.log(id)
+   
     try {
       await axios.post(`${url}api/v1/like`, {
         id, user
       }).then((res) => {
-        if (res.data.status == 200) {
-        // Update the 'liked' state for the specific item
-        const updatedLikes = [...liked];
-        updatedLikes[index] = !updatedLikes[index];
-        setLiked(updatedLikes);
+        if (res.status == 200) {
+             
+          getQuestionList()
+        }
 
-        // Update the 'items.like' value in the 'questions' state array
-        const updatedQuestions = [...questions];
-        updatedQuestions[index].like = res.data.newLikeValue; // Assuming the API returns the new 'like' value
-        setQuestionList(updatedQuestions);
-        } else {
-          console.log(res)
+        if(res.data.status==2){
+          alert("already liked")
         }
       })
     } catch (err) {
       console.log("Like Error", err)
     }
   }
+
+
+
   const handleValidToggle = (index) => {
     const updatedValid = [...validRemark]
 
     updatedValid[index] = !updatedValid[index]
     setValidRemarks(updatedValid)
   }
+
+
+
   function handleClick(question) {
     const textToCopy = question;
     navigator.clipboard
@@ -96,6 +93,8 @@ export default function QuestionList({questionList ,  setQuestionList}) {
         console.error('Error copying text to clipboard:', error);
       });
   }
+
+
 
   return (
     <div className='container QuestionList px-0 mt-4'>
@@ -113,14 +112,12 @@ export default function QuestionList({questionList ,  setQuestionList}) {
               </p>
 
               <p className='likes' onClick={() => {
-                handleLikeToggle(index)
-                handleLike(items._id, items.CreatedBy)
+                handleLikeToggle(index , )
+                handleLike(items._id,activeUser)
               }}>
-                {liked[index] ? (
-                  <ion-icon name="thumbs-up" size="small" />
-                ) : (
+         
                   <ion-icon name="thumbs-up-outline" size="small" />
-                )}
+              
                 {items.like}
               </p>
             </div>
