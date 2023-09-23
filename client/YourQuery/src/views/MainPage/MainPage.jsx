@@ -8,6 +8,8 @@ import axios from 'axios'
 
 
 export default function MainPage() {
+
+  const URL = "http://localhost:8000"
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [questionList, setQuestionList] = useState([])
 
@@ -22,20 +24,24 @@ export default function MainPage() {
   const getQuestionList = async () => {
 
     try {
-      await axios.get("http://localhost:8000/getQuestion").then((res) => {
+      await axios.get(`${URL}/api/v1/query`).then((res) => {
         setQuestionList(res.data.response)
-
       })
     } catch (e) {
       console.error(e)
     }
   }
 
-  //the "updater" , updates if new question is present 
-  if (NewQ) {
-    getQuestionList()
-    setIsNewQ(false)
-  }
+
+
+  useEffect(()=>{
+    console.log("inside new ")
+     if(NewQ){
+  
+      getQuestionList()
+      setIsNewQ(false)
+     }
+  },[NewQ])
 
 
   //the primary useEffect for the fetching the credentials from localstorage

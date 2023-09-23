@@ -32,7 +32,7 @@ export default function Navbar(props) {
       <div className="container-fluid d-flex  justify-content-between align-items-center  NaVcont">
         <a className="navbar-brand">
           <img src={logo} alt="Bootstrap" className='logo' />
-         <span id="Title__name">YourQuery</span> 
+         <span id="Title__name">SocialQuery</span> 
         </a>
         
         <button className="navbar-toggler navbar-expand-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

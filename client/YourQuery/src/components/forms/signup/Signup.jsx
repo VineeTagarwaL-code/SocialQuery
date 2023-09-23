@@ -35,7 +35,7 @@ export default function Signup(props) {
 
   async function handleFormSubmit(name , password){
     try {
-        await axios.post('http://localhost:8000/signup', {
+        await axios.post('http://localhost:8000/api/v1/signup', {
             name , password
         }).then((res) => {
           if(res.data.status === 0){
