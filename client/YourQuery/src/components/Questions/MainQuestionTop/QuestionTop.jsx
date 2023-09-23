@@ -3,6 +3,10 @@ import axios from 'axios'
 import './QuestionTop.css'
 import Loading from '../../../utils/Loader/Loading'
 export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq, getQuery }) {
+
+
+
+    const URL = "http://localhost:8000"
     const role = localStorage.getItem("Role")
     const user = localStorage.getItem("User")
     const [categories, setCategories] = useState([])
@@ -49,15 +53,15 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
 
         if (isLoggedIn) {
             try {
-                await axios.post("http://localhost:8000/addQuestion", {
+                await axios.post(`${URL}/api/v1/query`, {
                     question, cat, approve, user
                 }).then((res) => {
-                    if (res.data.status === 0) {
+                    if (res.status === 201) {
                         setIsQuestionAdded(true)
                         setIsNewQ(true)
                         setQuestionAdded()
 
-                    } else if (res.data.status === 1) {
+                    } else if (res.status === 200) {
                         setIsQuestionExists(true)
                         setQuestionExists()
 
@@ -91,10 +95,13 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
     // getting the categories 
     const getCategories = async () => {
         try {
-            await axios.get("http://localhost:8000/getCategory").then((res) => {
-                const responseData = res.data.response
-
-                setCategories(responseData)
+            await axios.get(`${URL}/api/v1/category`).then((res) => {
+                if(res.status == 201){
+                    setCategories(res.data.response)
+                }else{
+                  console.log(res)
+                }
+               
             })
         } catch (e) {
             console.error(e)
@@ -129,15 +136,15 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
         //will be sending a backend request soon 
         if (isLoggedIn) {
             try {
-                await axios.post("http://localhost:8000/addCategory", {
+                await axios.post(`${URL}/api/v1/category`, {
                     AddCat
                 }).then((res) => {
-                    if (res.data.status === 0) {
+                    if (res.status === 201) {
                         console.log(res)
                         setIsCategoryAdded(true)
 
 
-                    } else if (res.data.status === 1) {
+                    } else if (res.status === 302) {
                         console.log(res)
                     }
                 })

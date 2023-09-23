@@ -9,21 +9,23 @@ const app = express()
 app.use(express.json())
 app.use(express.static('./public'))
 app.use(express.urlencoded({ extended: true }))
-
+app.use(cors())
 
 //importing important modules and using dotenv package
 const connect=require('./DataBase/connect.js');
 const authRouter = require('./routes/auth.js');
+const catRouter = require('./routes/Category.js')
+const QueryRouter = require('./routes/Query.js')
 require('dotenv').config()
 
-
+app.use("/api/v1",catRouter)
 app.use("/api/v1",authRouter)
-
+app.use("/api/v1", QueryRouter)
 const startServer = async()=>{
   try{
      await connect()
-     app.listen(8000, () => {
-      console.log("app Started at port 8000")
+     app.listen(process.env.PORT, () => {
+      console.log(`App Started at port ${process.env.PORT}`)
     })
   }catch(error)
   {
@@ -44,93 +46,6 @@ startServer()
 
 
 
-
-
-
-
-
-
-app.get("/getCategory", async (req, res) => {
-
-
-  try {
-    const data = await Category.find()
-    if (data) {
-      return res.json({ status: 0, response: data })
-    } else {
-      return res.json({ status: 1 })
-    }
-
-  } catch (e) {
-    console.log(e)
-  }
-
-})
-
-
-app.post("/addQuestion", async (req, res) => {
-
-
-  try {
-    const { question, cat, approve, user } = req.body
-
-    const check = await Questions.findOne({ Question: question, Category: cat })
-    if (check) {
-      res.json({ status: 1, response: "Question Exists" })
-    } else {
-
-
-      // const result = Math.random().toString(36).substring(2,7);
-
-      const newQ = new Questions({
-        Question: question,
-        CreatedBy: user,
-        Category: cat,
-        approved: approve,
-
-      })
-
-      newQ.save().then(() => {
-
-        res.json({ status: 0, response: "Created" })
-      })
-    }
-  } catch (e) {
-    console.error(e)
-  }
-
-})
-
-
-app.post("/addCategory", async (req, res) => {
-
-
-  try {
-    const { AddCat } = req.body
-
-    const check = await Category.findOne({ Cat_name: AddCat })
-    if (check) {
-      res.json({ status: 1, response: "Category already Exists" })
-    } else {
-
-
-      // const result = Math.random().toString(36).substring(2,7);
-
-      const newC = new Category({
-        Cat_name: AddCat
-
-      })
-
-      newC.save().then(() => {
-
-        res.json({ status: 0, response: "Created" })
-      })
-    }
-  } catch (e) {
-    console.error(e)
-  }
-
-})
 
 
 
