@@ -57,8 +57,7 @@ export default function MainPage() {
   //for fetching the query matching the regex exp of the input field in QuestionTop.jsx
   const getQuery = async () => {
     try {
-      axios.get('http://localhost:8000/getQuery', { params: { query: query } }).then((res) => {
-
+      axios.get(`${URL}/api/v1/regEx`, { params: { query: query } }).then((res) => {
         setQuestionList(res.data.response)
 
 
@@ -72,7 +71,7 @@ export default function MainPage() {
   //for fetching the query matching the category buttons in QuestionTop.jsx
   const CatReqQuery = async () => {
     try {
-      await axios.get('http://localhost:8000/CatReqQuery', { params: { catName: catReq } }).then((res) => {
+      await axios.get(`${URL}/api/v1/catQuery`, { params: { catName: catReq } }).then((res) => {
         setQuestionList(res.data.response)
       })
     } catch (e) {
