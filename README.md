@@ -1,6 +1,6 @@
 
-# YourQuery 
-YourQuery: Simplifying interviews with a central query repository. Easily organize, reference, and manage questions across categories for a more efficient and well-prepared interview experience.
+# SocialQuery
+SocialQuery: Simplifying interviews with a central query repository. Easily organize, reference, and manage questions across categories for a more efficient and well-prepared interview experience.
 
 ## Project Description 
 Query management website for ease organisation and management 
