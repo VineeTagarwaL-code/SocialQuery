@@ -45,8 +45,8 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex   w-100 justify-content-evenly align-items-center">
               <li className="nav-item userP d-flex ">
                 <div className='d-flex align-items-center logged__As'>
-                <h3 id='user__nav'>User :</h3>
-                 <h4 className='m-0 user'>{userName}</h4>
+                <h3 id='user__nav'>User : </h3>
+                 <h4 className='m-0 user'>{`${userName}`}</h4>
                 </div>
                
               </li>

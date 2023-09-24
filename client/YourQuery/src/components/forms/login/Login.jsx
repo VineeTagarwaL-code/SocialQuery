@@ -18,7 +18,7 @@ const SignupSchema = Yup.object().shape({
 export default function Login(props) {
 
 
-
+   const url = "http://localhost:8000"
  
   const navigate = useNavigate();
 
@@ -31,12 +31,13 @@ export default function Login(props) {
   }
  async function handleFormSubmit(name , password){
   try {
-      await axios.post('http://localhost:8000/api/v1/login', {
+      await axios.post(`${url}/api/v1/login`, {
           name , password
       }).then((res) => {
-
+         console.log("login response " , res)
         
-        if(res.status == 404){
+        if(res.status === 404){
+          console.log(res.status)
           formik.setFieldValue("name","")
           formik.setFieldValue("password","")
           props.setIsError(res.data.response)
