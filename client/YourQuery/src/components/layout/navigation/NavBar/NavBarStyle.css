@@ -97,13 +97,12 @@
     background-color: #2B61EC;
     border-radius: 20px;
     justify-content: space-evenly;
-    padding: 1px;
-    padding-left: 10px;
-    padding-top: 10px;
-    width: 200px;
+padding: 10px 10px 1px 10px ;
+    width: fit-content;
 }
 
 #user__nav{
  color: white !important;
  font-size: 20px;
+margin-right: 5px;
 }

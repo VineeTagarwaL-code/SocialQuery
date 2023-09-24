@@ -16,17 +16,30 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
 
   const [liked, setLiked] = useState(new Array(questions.length).fill(false)); // Track likes for each item
 
-  const [remark, setRemark] = useState("")
+  const [text, setRemark] = useState("")
   const [validRemark, setValidRemarks] = useState(new Array(questions.length).fill(false))
 
 
 
 
   
+  const createdBy = localStorage.getItem('User');
   
+  const handleAddRemark = async (e , id) => {
+    console.log("CreatedBy:", createdBy);
+    console.log("Text:", text);
+    console.log("ID :" , id);
+    console.log("URL:", `${url}/api/v1/remark`);
   
-  const handleAddRemark = async (e) => {
-    console.log(remark)
+    try{
+      await axios.post(`http://localhost:8000/api/v1/remark` , {
+        text , createdBy , id
+      }).then((res)=>{
+        console.log(res)
+      })
+    }catch(error){
+      console.log("remark" , error)
+    }
   }
 
 
@@ -119,7 +132,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
          
                   <ion-icon name="thumbs-up-outline" size="small" />
               
-                {items.like}
+                <span style={{"color":"blue"}}>{items.like}</span>
               </p>
             </div>
 
@@ -158,7 +171,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
                   <p
                     className='remarks__btn add'
                     onClick={(e) => {
-                      handleAddRemark();
+                      handleAddRemark(e,items._id);
                     }}
 
 
