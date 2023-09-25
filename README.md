@@ -47,3 +47,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+- 1)Inside the client directory navigate to YourQuery then run :
+  ### `npm install`
+installs all the necessaary packages needed for deployment 
+### `npm run dev`
+For starting the development server , note that this project uses Vite to create its react app 
+
+```shell
+we are waiting for your prs ! 
+```
+
+
