@@ -21,7 +21,7 @@ Query management website for ease organisation and management
 ## Deployment
 In the project directoy you can run : 
 
-- 1)Inside the server directory
+- # 1)  Inside the server directory
 ### `npm start`
 
 Runs the app in the development mode. <br/>
@@ -47,8 +47,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- 1)Inside the client directory navigate to YourQuery then run :
-  ### `npm install`
+- # 2) Inside the client directory navigate to YourQuery then run :
+### `npm install`
 installs all the necessaary packages needed for deployment 
 ### `npm run dev`
 For starting the development server , note that this project uses Vite to create its react app 
