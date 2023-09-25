@@ -18,14 +18,14 @@ Query management website for ease organisation and management
 ![WhatsApp Image 2023-09-25 at 23 41 32](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/a8662a1d-da4b-4c24-9afa-05e012d052cd)
 - Signup
  ![WhatsApp Image 2023-09-25 at 23 42 47](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/6dd6a300-e5c2-4811-b4ab-8c54ba07f074)
-### Deployment
+## Deployment
 In the project directoy you can run : 
 
 - 1)Inside the server directory
 ### `npm start`
 
 Runs the app in the development mode. <br/>
-## Setup .env file and add PORT and MONGO_URI as per your development need
+Setup .env file and add PORT and MONGO_URI as per your development need
 
 Open [http://localhost:PORT](http://localhost:PORT) to view it in the browser.
 
