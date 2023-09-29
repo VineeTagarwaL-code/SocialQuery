@@ -19,12 +19,19 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
   const [text, setRemark] = useState("")
   const [validRemark, setValidRemarks] = useState(new Array(questions.length).fill(false))
 
-
+  const [isRemarkAdded , setIsRemarkAdded] = useState(false);
 
 
   
   const createdBy = localStorage.getItem('User');
   
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setIsRemarkAdded(false)
+    },2000)
+  },[isRemarkAdded])
+
   const handleAddRemark = async (e , id) => {
     console.log("CreatedBy:", createdBy);
     console.log("Text:", text);
@@ -35,9 +42,12 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
       await axios.post(`http://localhost:8000/api/v1/remark` , {
         text , createdBy , id
       }).then((res)=>{
+        setIsRemarkAdded(true)
+        setRemark("")
         console.log(res)
       })
     }catch(error){
+      setRemark("")
       console.log("remark" , error)
     }
   }
@@ -122,7 +132,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
                   handleRemarkToggle(index); // Pass the index of the clicked item
                 }}
               >
-                <ion-icon name="add-outline" size="medium" /> Add Remarks
+                <ion-icon name="add-outline" size="medium" id="remarks" /> Add Remarks
               </p>
 
               <p className='likes' onClick={() => {
@@ -154,29 +164,18 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
                   id="remarks__input"
                   placeholder="Enter your remarks"
                   onChange={(e) => {
-                    if (/^.+$|^.{1,500}$/.test(e.target.value)) {
-                      setValidRemarks(true); // Update the state if it matches the pattern
-                    } else {
-                      setValidRemarks(false)
-                    }
                     setRemark(e.target.value)
                   }}
                 />
-                {
-                  !validRemark[index] ? (
-                    <p id='error__top'><ion-icon name="alert-circle" className="alert" color="red"></ion-icon>Should not be empty</p>
-                  ) : null
-                }
+             
                 <div id='remarks__btnCont'>
                   <p
-                    className='remarks__btn add'
+                    className={`remarks__btn add ${isRemarkAdded ? "added" : ""}`}
                     onClick={(e) => {
                       handleAddRemark(e,items._id);
                     }}
-
-
                   >
-                    <ion-icon name="add-outline" size="medium" /> Add
+                    <ion-icon name="add-outline" size="medium" /> {isRemarkAdded ? "Added" : "Add"}
                   </p>
                   <p
                     className='remarks__btn close'
@@ -189,6 +188,11 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
                 </div>
               </div>
             ) : null}
+            <div>
+                <div id="show__remarksBtn">
+                <ion-icon name="chatbubbles-outline"/><p id='remarks_show'>{items.remarkCounter}</p>
+                </div>
+            </div>
           </div>
         );
       })}
