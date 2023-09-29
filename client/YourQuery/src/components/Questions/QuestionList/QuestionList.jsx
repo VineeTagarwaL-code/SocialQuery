@@ -21,10 +21,14 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
 
   const [isRemarkAdded , setIsRemarkAdded] = useState(false);
 
-
+  const[showRemarks , setShowRemarks] = useState(false);
   
   const createdBy = localStorage.getItem('User');
   
+
+  const showRemark = ()=>{
+    setShowRemarks(!showRemarks)
+  }
 
   useEffect(()=>{
     setTimeout(()=>{
@@ -44,6 +48,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
       }).then((res)=>{
         setIsRemarkAdded(true)
         setRemark("")
+        getQuestionList()
         console.log(res)
       })
     }catch(error){
@@ -132,7 +137,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
                   handleRemarkToggle(index); // Pass the index of the clicked item
                 }}
               >
-                <ion-icon name="add-outline" size="medium" id="remarks" /> Add Remarks
+                <ion-icon name="add-outline" size="medium" id="remarks__icon" /> Add Remarks
               </p>
 
               <p className='likes' onClick={() => {
@@ -189,10 +194,24 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
               </div>
             ) : null}
             <div>
-                <div id="show__remarksBtn">
+                <div id="show__remarksBtn" onClick={()=>{showRemark()}}>
                 <ion-icon name="chatbubbles-outline"/><p id='remarks_show'>{items.remarkCounter}</p>
                 </div>
             </div>
+            {
+            showRemarks ? (
+              <div id='remarks_show_cont'>
+                {items.remarks.map((remark, index) => (
+                  <div key={index} id='remark__user'>
+                    {/* Display the properties of the remark */}
+                    <p>{remark.text} - </p>
+                    <p>  {remark.createdBy}</p>
+                    {/* Add more JSX elements as needed */}
+                  </div>
+                ))}
+              </div>
+            ) : null      
+            }
           </div>
         );
       })}
