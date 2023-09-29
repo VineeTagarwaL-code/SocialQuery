@@ -188,3 +188,27 @@ ion-icon {
     margin-bottom: 0rem !important;
 }
 
+#remark__user{
+
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 7px;
+    margin-left: 12px;
+    font-family: var(--main-font);
+ 
+
+}
+#remark__user::before{
+    content: '';
+    background-color: rgb(231, 231, 231);
+    border-radius: 12px;
+    position: relative;
+    margin-right: 20px;
+    height: 40px;
+    width: 10px;
+
+}
+
