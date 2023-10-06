@@ -96,7 +96,7 @@ export default function MainPage() {
       <Navbar isLoggedIn={isLoggedIn} />
       <div className='container body mt-5'>
         <QuestionTop setIsNewQ={setIsNewQ} setQuery={setQuery} isLoggedIn={isLoggedIn} setCatReq={setCatReq} getQuery={getQuery} />
-        <QuestionList questionList={questionList} getQuestionList={getQuestionList}/>
+        <QuestionList isLoggedIn={isLoggedIn} questionList={questionList} getQuestionList={getQuestionList}/>
       </div>
       <Footer />
 
