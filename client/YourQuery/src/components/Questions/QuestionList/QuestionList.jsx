@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './QuestionList.css';
 
-export default function QuestionList({questionList ,  setQuestionList , getQuestionList}) {
+
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+const customId = "custom-id-yes";
+
+
+export default function QuestionList({questionList ,isLoggedIn,  setQuestionList , getQuestionList}) {
   
   const questions = questionList
   const url = "http://localhost:8000/";
@@ -27,7 +34,12 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
   
 
   const showRemark = ()=>{
-    setShowRemarks(!showRemarks)
+    if(isLoggedIn){
+      setShowRemarks(!showRemarks)
+    }else{
+      notify()
+    }
+  
   }
 
   useEffect(()=>{
@@ -41,30 +53,39 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
     console.log("Text:", text);
     console.log("ID :" , id);
     console.log("URL:", `${url}/api/v1/remark`);
-  
-    try{
-      await axios.post(`http://localhost:8000/api/v1/remark` , {
-        text , createdBy , id
-      }).then((res)=>{
-        setIsRemarkAdded(true)
+
+
+      try{
+        await axios.post(`http://localhost:8000/api/v1/remark` , {
+          text , createdBy , id
+        }).then((res)=>{
+          setIsRemarkAdded(true)
+          setRemark("")
+          getQuestionList()
+          console.log(res)
+        })
+      }catch(error){
         setRemark("")
-        getQuestionList()
-        console.log(res)
-      })
-    }catch(error){
-      setRemark("")
-      console.log("remark" , error)
-    }
+        console.log("remark" , error)
+      }
+  
+  
+
   }
 
 
   const handleRemarkToggle = (index) => {
+    if(isLoggedIn){
     // Create a copy of the toggle state array
     const updatedToggles = [...addRemarksToggled];
     // Toggle the state for the clicked item
     updatedToggles[index] = !updatedToggles[index];
     // Update the state with the new array
     setAddRemarksToggled(updatedToggles);
+    }else{
+      notify()
+    }
+
   };
 
 
@@ -82,6 +103,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
 
   const handleLike = async (id, user) => {
    
+   if(isLoggedIn){
     try {
       await axios.post(`${url}api/v1/like`, {
         id, user
@@ -98,6 +120,11 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
     } catch (err) {
       console.log("Like Error", err)
     }
+   }else{
+    notify()
+   }
+    
+
   }
 
 
@@ -123,6 +150,20 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
       });
   }
 
+
+  const notify = () =>{
+    toast.error('Please Login / Signup ', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      toastId: customId
+      });
+  };
 
 
   return (
@@ -215,6 +256,7 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
           </div>
         );
       })}
+      <ToastContainer/>
     </div>
   );
 }
