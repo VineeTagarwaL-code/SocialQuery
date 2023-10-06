@@ -189,7 +189,7 @@ ion-icon {
 }
 
 #remark__user{
-
+   margin-bottom: 0rem !important;
     display: flex;
     gap: 5px;
     justify-content: center;
@@ -212,3 +212,7 @@ ion-icon {
 
 }
 
+
+.query_remark{
+    margin-bottom: 0rem !important;
+}
