@@ -157,9 +157,11 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
     }
     return (
         <div className='container top d-flex flex-column justify-content-evenly p-4'>
+
+
             <div className='headers d-flex justify-content-between align-items-center'>
                 <h2 className='headerQ'>Questions</h2>
-                <div>
+                <div id='header__btnConts'>
                     {
                         isLoggedIn ?
                             <button className='AddQ' data-bs-toggle="modal" data-bs-target="#exampleModal" >
@@ -177,9 +179,9 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
                             null
                     }
                 </div>
-
-
             </div>
+
+
             <div className='filter'>
                 <h4 className='filter px-2'>Filter By :</h4>
                 <input
