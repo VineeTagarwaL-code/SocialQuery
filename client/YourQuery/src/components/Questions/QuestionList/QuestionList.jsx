@@ -204,8 +204,8 @@ export default function QuestionList({questionList ,  setQuestionList , getQuest
                 {items.remarks.map((remark, index) => (
                   <div key={index} id='remark__user'>
                     {/* Display the properties of the remark */}
-                    <p>{remark.text} - </p>
-                    <p>  {remark.createdBy}</p>
+                    <p className="query_remark">{remark.text} - </p>
+                    <p className="query_remark">  {remark.createdBy}</p>
                     {/* Add more JSX elements as needed */}
                   </div>
                 ))}
