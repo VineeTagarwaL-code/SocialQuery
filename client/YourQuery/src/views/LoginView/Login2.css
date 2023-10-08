@@ -1,0 +1,66 @@
+.loginPage{
+    user-select: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+
+   
+}
+
+#form__cont{
+    height: 100vh;
+    
+    flex-basis: 60%;
+    margin: 0;
+    display: flex;
+   padding-left: 70px;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgb(34, 158, 246);
+}
+#right__cont{
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 40%;
+}
+
+img{
+    height: 400px;
+}
+#welcome{
+    color: white;
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: 1.4em;
+ 
+   
+}
+
+#welcome__Cont{
+    display: flex;
+    
+    align-items: center;
+}
+
+
+#form__wrapper{
+   
+    display: flex;
+  gap :10px;
+    flex-direction: column;
+}
+#info__{
+    font-family: var(--sub-font);
+    color: rgb(249, 249, 249);
+    font-size: .9em;
+    margin-bottom: 20px;
+}
+
+
+#follow__links{
+    color: rgb(76, 76, 76);
+}

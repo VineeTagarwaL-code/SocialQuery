@@ -1,0 +1,9 @@
+#authRoutes__cont{
+    z-index: 5;
+    display: flex;
+    width: fit-content;
+    gap: 30px;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+}

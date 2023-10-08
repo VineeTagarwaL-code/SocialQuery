@@ -11,7 +11,7 @@ const login = asyncWrap(async (req, res) => {
         return res.status(201).json({ status: "successfull", response: check, session: session })
     }
     else {
-        return res.status(404).json({ status: "un-successfull", response: "Incorect User / Password" })
+        return res.status(200).json({ status: "un-successfull", response: "Incorect User / Password" })
     }
 })
 
