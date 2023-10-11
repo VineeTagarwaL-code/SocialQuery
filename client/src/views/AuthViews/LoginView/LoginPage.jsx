@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import './Login2.css'
-import Navbar from '../../components/layout/navigation/NavBar/Navbar'
-import Footer from '../../components/layout/navigation/Footer/Footer'
-import Login from '../../components/forms/login/Login'
+import '../../AuthViews/Auth.css'
+import Navbar from '../../../components/layout/navigation/NavBar/Navbar'
+import Footer from '../../../components/layout/navigation/Footer/Footer'
+import Login from '../../../components/forms/login/Login'
 import { Link } from 'react-router-dom'
 
-import Loading from '../../utils/Loader/Loading'
-import Errors from '../../utils/Errors/Errors'
-import Button from '../../utils/Button/Button'
+import Loading from '../../../utils/Loader/Loading'
+import Errors from '../../../utils/Errors/Errors'
+import Button from '../../../utils/Button/Button'
 
-import Gif from '../../assests/form.gif'
+import Gif from '../../../assests/form.gif'
 
 export default function LoginPage(props) {
     const [isLoading, setIsLoading] = useState(false)
@@ -46,8 +46,8 @@ export default function LoginPage(props) {
                 <img src={Gif}/>
               
                 <hr style={{"color":"black"}}/>
-                <div>
-                <ion-icon name="logo-github" style={{"color":"rgb(76, 76, 76" , "fontSize" :"30px" , "cursor":"pointer" , "marginRight":"10px"}} ></ion-icon>
+                <div id='social_ICONSLogin'>
+                <ion-icon className="links" name="logo-github" style={{"color":"rgb(76, 76, 76" , "fontSize" :"30px" , "cursor":"pointer" , "marginRight":"10px"}} ></ion-icon>
                 <ion-icon name="logo-instagram"  style={{"color":"rgb(76, 76, 76" , "fontSize" :"30px" , "cursor":"pointer" , "marginRight":"10px"}}></ion-icon>
                 <ion-icon name="logo-twitter"  style={{"color":"rgb(76, 76, 76" , "fontSize" :"30px" , "cursor":"pointer" , "marginRight":"10px"}}></ion-icon>
                 <ion-icon name="logo-linkedin"  style={{"color":"rgb(76, 76, 76" , "fontSize" :"30px" , "cursor":"pointer" , "marginRight":"10px"}}></ion-icon>

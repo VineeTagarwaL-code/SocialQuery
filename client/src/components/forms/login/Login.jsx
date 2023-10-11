@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import './Login.css'
+import '../../forms/form.css'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -148,7 +148,7 @@ export default function Login(props) {
           value={formik.values.password}
           className='input__form'
         />
-      
+     
       </div>
 
 

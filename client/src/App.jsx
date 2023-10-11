@@ -7,10 +7,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 
 
-const Login  =  React.lazy(()=> import('./views/LoginView/LoginPage'))
+const Login  =  React.lazy(()=> import('./views/AuthViews/LoginView/LoginPage'))
 const Main = React.lazy(()=> import('./views/MainPage/MainPage'))
 const Loading = React.lazy(()=> import('./utils/Loader/Loading'))
-const Signup = React.lazy(() => import('./views/SignupView/SignupPage'));
+const Signup = React.lazy(() => import('./views/AuthViews/SignupView/SignupPage'));
 
 function App() {
 

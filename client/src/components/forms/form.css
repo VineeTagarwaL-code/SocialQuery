@@ -11,6 +11,7 @@
 .label__form{
     color: white;
     font-family: var(--sub-font);
+
     font-weight: 600;
     margin-bottom: 8px;
 }
@@ -18,11 +19,11 @@
 .input__form{
     outline: none;
     border: 1px solid #ccc !important;
-    width: 350px;
+    width: 300px;
     padding: 5px 10px;
     font-family: var(--sub-font);
     color: rgb(66, 66, 66);
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 20px;
 
 }
@@ -42,8 +43,24 @@
     font-family: var(--sub-font);
     outline: none;
     background-color: white;
-    border-radius: 6px;
+    border-radius: 12px;
 }
 
 
+
+
+.usernameForm__cont{
+ 
+    display: flex;
+    flex-direction: row !important;
+    gap: 30px;
+}
+.usernameField{
+    width: 250px !important;
+}
+.user__group{
+    display: flex;
+    flex-direction: column;
+    
+}
 
