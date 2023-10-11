@@ -19,6 +19,8 @@
     background-color: rgb(34, 158, 246);
 }
 #right__cont{
+    
+    position: relative;
     margin: 0;
     box-sizing: border-box;
     display: flex;
@@ -63,4 +65,35 @@ img{
 
 #follow__links{
     color: rgb(76, 76, 76);
+}
+
+#social_ICONSLogin{
+    position: absolute;
+    bottom: 2vw;
+    right: 2vw;
+
+}
+/* Extra Small (XS) - Mobile Devices */
+@media (max-width: 575px) {
+    /* Your CSS rules for XS screens go here */
+}
+
+/* Small (SM) - Larger Mobile Devices and Small Tablets */
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Your CSS rules for SM screens go here */
+}
+
+/* Medium (MD) - Tablets and Small Laptops */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Your CSS rules for MD screens go here */
+}
+
+/* Large (LG) - Standard Laptops and Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Your CSS rules for LG screens go here */
+}
+
+/* Extra Large (XL) - Large Desktops and Beyond */
+@media (min-width: 1200px) {
+    /* Your CSS rules for XL screens go here */
 }
