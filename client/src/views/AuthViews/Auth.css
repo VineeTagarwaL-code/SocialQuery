@@ -1,9 +1,9 @@
-.loginPage{
+.Page{
     user-select: none;
     overflow: hidden;
     display: flex;
     flex-direction: row;
-
+    scroll-behavior: smooth;
    
 }
 
@@ -73,9 +73,53 @@ img{
     right: 2vw;
 
 }
+#svg__waves{
+ 
+    position: absolute;
+    bottom:-2px;
+    visibility: hidden;
+}
 /* Extra Small (XS) - Mobile Devices */
 @media (max-width: 575px) {
     /* Your CSS rules for XS screens go here */
+   .Page{
+    flex-direction: column-reverse;
+
+    height: fit-content !important;
+
+   }
+   img{
+    height: 200px;
+   
+}
+#right__cont{
+   
+    padding-top: 10vh;
+
+    flex-basis: 50% !important;
+}
+#form__cont{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex-basis: 50% !important;
+}
+#social_ICONSLogin{
+    visibility: hidden;
+}
+#svg__waves{
+    visibility: visible;
+}
+#welcome{
+    font-size: 1.2em;
+}
+#info__{
+    font-size: .89em;
+    
+    width: 300px;
+}
+#form__cont{
+    padding-left: 7vw;
+}
 }
 
 /* Small (SM) - Larger Mobile Devices and Small Tablets */

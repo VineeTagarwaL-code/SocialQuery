@@ -50,7 +50,7 @@
 
 
 .usernameForm__cont{
- 
+    
     display: flex;
     flex-direction: row !important;
     gap: 30px;
@@ -64,3 +64,38 @@
     
 }
 
+@media (max-width: 575px) {
+    .label__form{
+        font-weight: 500;
+    }
+    .input__form{
+        width: 240px;
+        padding: 2px 9px;
+    }.formBtn{
+        padding: 2px 20px;
+    }
+    .usernameForm__cont{
+        gap: 0px;
+    flex-direction: column !important;
+    }
+}
+
+/* Small (SM) - Larger Mobile Devices and Small Tablets */
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Your CSS rules for SM screens go here */
+}
+
+/* Medium (MD) - Tablets and Small Laptops */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Your CSS rules for MD screens go here */
+}
+
+/* Large (LG) - Standard Laptops and Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Your CSS rules for LG screens go here */
+}
+
+/* Extra Large (XL) - Large Desktops and Beyond */
+@media (min-width: 1200px) {
+    /* Your CSS rules for XL screens go here */
+}
