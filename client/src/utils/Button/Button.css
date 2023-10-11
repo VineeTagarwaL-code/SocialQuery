@@ -27,3 +27,36 @@ ion-icon{
     color: white;
     font-size: 16px;
 }
+
+/* Extra Small (XS) - Mobile Devices */
+@media (max-width: 575px) {
+    /* Your CSS rules for XS screens go here */
+    #button__cont{
+        padding:2px 5px;
+        gap: 5px;
+    }
+}
+
+/* Small (SM) - Larger Mobile Devices and Small Tablets */
+@media (min-width: 576px) and (max-width: 767px) {
+    /* Your CSS rules for SM screens go here */
+        #button__cont{
+        padding:4px 7px;
+        gap: 5px;
+    }
+}
+
+/* Medium (MD) - Tablets and Small Laptops */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Your CSS rules for MD screens go here */
+}
+
+/* Large (LG) - Standard Laptops and Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Your CSS rules for LG screens go here */
+}
+
+/* Extra Large (XL) - Large Desktops and Beyond */
+@media (min-width: 1200px) {
+    /* Your CSS rules for XL screens go here */
+}
