@@ -4,8 +4,9 @@ const { v4: uuidv4 } = require('uuid');
 
 
 const login = asyncWrap(async (req, res) => {
-    const { name, password } = req.body;
-    const check = await User.findOne({ name, password: password });
+    const { email, password } = req.body;
+console.log(req.body)
+    const check = await User.findOne({ email, password: password });
     if (check) {
         const session = uuidv4();
         return res.status(201).json({ status: "successfull", response: check, session: session })
