@@ -8,8 +8,9 @@
 }
 
 #form__cont{
+    position: relative;
     height: 100vh;
-    
+
     flex-basis: 60%;
     margin: 0;
     display: flex;
@@ -53,6 +54,7 @@ img{
    
     display: flex;
   gap :10px;
+  margin-right: 40px;
     flex-direction: column;
 }
 #info__{
@@ -78,6 +80,16 @@ img{
     position: absolute;
     bottom:-2px;
     visibility: hidden;
+}
+
+#svg__Cont{
+    position: absolute;
+    right: -80vw;
+
+ 
+
+    
+    transform: rotate(90deg);
 }
 /* Extra Small (XS) - Mobile Devices */
 @media (max-width: 575px) {
@@ -120,16 +132,66 @@ img{
 #form__cont{
     padding-left: 7vw;
 }
+
+#svg__Cont{
+    visibility: hidden;
+}
 }
 
 /* Small (SM) - Larger Mobile Devices and Small Tablets */
 @media (min-width: 576px) and (max-width: 767px) {
     /* Your CSS rules for SM screens go here */
+    .Page{
+        flex-direction: column-reverse;
+    
+        height: fit-content !important;
+    
+       }
+       img{
+        height: 300px;
+       
+    }
+    #right__cont{
+       
+        padding-top: 10vh;
+        border: 1px solid red;
+        padding-bottom: 10vh;
+        flex-basis: 60% !important;
+    }
+    #form__cont{
+        padding-top: 40px;
+        padding-bottom: 40px;
+        flex-basis: 50% !important;
+    }
+    #social_ICONSLogin{
+        visibility: hidden;
+    }
+    #svg__waves{
+        visibility: visible;
+    }
+    #welcome{
+        font-size: 1.4em;
+    }
+    #info__{
+        font-size: 1em;
+        
+        width: 300px;
+    }
+    #form__cont{
+        padding-left: 7vw;
+    }
+    
+    #svg__Cont{
+        visibility: hidden;
+    }
 }
 
 /* Medium (MD) - Tablets and Small Laptops */
 @media (min-width: 768px) and (max-width: 991px) {
     /* Your CSS rules for MD screens go here */
+    #svg__Cont{
+        visibility: hidden;
+    }
 }
 
 /* Large (LG) - Standard Laptops and Desktops */

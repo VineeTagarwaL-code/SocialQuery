@@ -22,7 +22,9 @@
     width: 300px;
     padding: 5px 10px;
     font-family: var(--sub-font);
-    color: rgb(66, 66, 66);
+    font-weight: lighter;
+    color: rgb(62, 62, 62);
+    font-size: 0.9rem;
     border-radius: 8px;
     margin-bottom: 20px;
 
@@ -70,7 +72,9 @@
     }
     .input__form{
         width: 240px;
-        padding: 2px 9px;
+        font-size: 0.8rem;
+        color: rgb(101, 101, 101);
+        padding: 4px 9px;
     }.formBtn{
         padding: 2px 20px;
     }
