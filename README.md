@@ -3,21 +3,53 @@
 SocialQuery: Simplifying interviews with a central query repository. Easily organize, reference, and manage questions across categories for a more efficient and well-prepared interview experience.
 
 ## Project Description 
-Query management website for ease organisation and management 
+This web application, developed using the MERN stack, is designed to effectively manage and categorize user queries. It offers user authentication and an admin dashboard for content management on the website. Users can create accounts with unique emails, add categories, and store their queries. Furthermore, it features an attractive and innovative UI that helps users navigate and understand the platform better. The application also allows users to add comments under these queries, ensuring they never forget important questions during interviews, code reviews, or development discussions.
+## Features
 
--  Users can create their YourQuery account or can directly sign in if they already have an account  .
-- Then the users will be directed to home page , and they can see all query that has been 
-  previously added .
--  Users can search for Queries using the search field or by using sort via category button 
-- User can add their own remarks and answers to the Queries
-- User can like/dislike the queries 
-- Admin panel to manage the database via web portal 
-- Mobile Responsive 
-## Screenshots
-- Login 
-![WhatsApp Image 2023-09-25 at 23 41 32](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/a8662a1d-da4b-4c24-9afa-05e012d052cd)
+1. Login Page
+   - Login with the provided user id and password
+   - session management 
+   - Powered by JWT tokens
+2. Signup
+   - User can create new account using their name and add emails later
+   - session management 
+   - Powered by JWT tokens
+3. HomePage
+   - User can see queries added by peers
+   - User can see add question and add category button along with ability to filter using text , category wise
+   - User can add their own remarks and answers to the Queries
+   - User can Logout too
+
+## Interface 
+- Login
+ ![image](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/60cfe27f-a891-4ef1-85ef-95c3f6cc0197)
+
 - Signup
- ![WhatsApp Image 2023-09-25 at 23 42 47](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/6dd6a300-e5c2-4811-b4ab-8c54ba07f074)
+![Screen Shot 2023-10-25 at 23 10 35](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/4a5ddfed-43e7-4be9-ac9d-0d3c87bac597)
+
+- Mobile Views
+![Untitled design(2)](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/7b504e7c-ebf6-4aa9-876e-77851e6aea24)
+
+## Tech stack
+
+#### Frontend
+- React
+  
+#### Backend
+- Nodejs
+- Express
+- MongoDB
+- Mongoose
+
+
+
+#### Other Tools
+- Toastify
+- React Router
+- Nodemon
+- JWT
+
+
 ## Deployment
 In the project directoy you can run : 
 
@@ -56,5 +88,12 @@ For starting the development server , note that this project uses Vite to create
 ```shell
 we are waiting for your prs ! 
 ```
+
+
+## Need help?
+
+Feel free to contact me on [Twitter](https://twitter.com/vineet_codes) or [LinkedIn](https://www.linkedin.com/in/vineetagarwal2004/), know more about me at [vineet.app](https://vineetagarwal.netlify.app/)
+
+[![Twitter](https://img.shields.io/badge/Twitter-follow-blue.svg?logo=twitter&logoColor=white)](https://twitter.com/vineet_codes/) [![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/codewithvineet/) 
 
 
