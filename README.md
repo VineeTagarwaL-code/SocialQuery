@@ -89,6 +89,13 @@ For starting the development server , note that this project uses Vite to create
 we are waiting for your prs ! 
 ```
 
+## Useful Links
+
+
+- [Backend Repository](https://github.com/VineeTagarwaL-code/Social-Query-backend)
+- [Backend Repository in this repo ](https://github.com/VineeTagarwaL-code/SocialQuery/tree/main/server)
+
+
 
 ## Need help?
 
