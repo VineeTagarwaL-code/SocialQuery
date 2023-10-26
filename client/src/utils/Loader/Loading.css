@@ -1,5 +1,15 @@
 .loader{
-    color: rgb(21, 130, 255);
+    color: blue;
+    display: flex;
+    justify-content: center;
+    
+   
+    margin: auto;
     position: absolute;
     top: 40px;
+    left: 850px;
+    
+    z-index: 999;
+    margin: auto;
+   
 }
