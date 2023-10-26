@@ -97,7 +97,7 @@ export default function Login(props) {
     theme: "light",
   });
 
-  const url = "http://localhost:8000"
+  const url = "https://social-query-api.vercel.app/"
 
   const navigate = useNavigate();
 

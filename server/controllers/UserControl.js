@@ -19,17 +19,24 @@ console.log(req.body)
 
 
 const signup = asyncWrap(async (req, res) => {
-    const { name, password } = req.body;
-    const checkName = await User.findOne({ name })
-    if (checkName) {
+    const {   Email , Pass , FirstName , LastName} = req.body;
+   
+    const checkEmail = await User.findOne({ Email })
+    if(Email === "" || Pass === "" || FirstName === "" || LastName===""){
+        return res.json({status:2})
+    }
+    if (checkEmail) {
         return res.json({ status: 1, response: "Name Already Exists" });
     }
     const user = new User({
-        password: password,
-        name,
+        firstName:FirstName,
+        lastName:LastName,
+        email: Email,
+        password:Pass,
         role: "User",
     });
     await user.save();
+    console.log(user)
     const session = uuidv4();
     return res.json({ status: 0, response: user, session: session });
 })
