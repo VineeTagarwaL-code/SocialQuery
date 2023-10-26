@@ -10,12 +10,10 @@ app.use(express.json())
 app.use(express.static('./public'))
 app.use(express.urlencoded({ extended: true }))
 
-const corsOptions = {
-  origin: 'https://social-query-api.vercel.app/', // Replace with the origin you want to allow
-  methods: 'GET,POST', // Define the HTTP methods you want to allow
-  allowedHeaders: 'Content-Type,Authorization', // Define the allowed headers
-};
-app.use(cors(corsOptions));
+
+app.use(cors({
+  origin: '*',
+}));
 //importing important modules and using dotenv package
 const connect=require('./DataBase/connect.js');
 const authRouter = require('./routes/auth.js');
