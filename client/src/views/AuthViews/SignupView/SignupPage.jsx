@@ -23,7 +23,9 @@ import Gif from '../../../assests/form.gif'
     }, 4000)
      },[isError])
   return (
+  
     <div className='container-fluid Page m-0 p-0'>
+       
     <Navbar />
     <section id="form__cont">
         <div id="form__wrapper">

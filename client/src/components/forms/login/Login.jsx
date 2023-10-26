@@ -135,7 +135,7 @@ export default function Login(props) {
             localStorage.setItem("SessionId", res.data.session)
             localStorage.setItem("Role", "User")
             props.setIsLoggedIn(true)
-            notify();
+            notifySuccess();
             setTimeout(() => {
 
               navigateToHome();

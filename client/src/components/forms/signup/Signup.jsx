@@ -17,16 +17,29 @@ export default function Signup(props) {
   const[Pass , setPass] = useState("")
   const[cPass , setCpass]=useState("")
 
-  const[validFirstName , setvalidFirstName] = useState(false)
-  const[validLastName , setvalidLastName] = useState(false)
-  const[validEmail , setvalidEmail] = useState(false)
-  const[validPass , setvalidPass] = useState(false)
-  const[validcPass , setvalidCpass]=useState(false)
+  const[validFirstName , setvalidFirstName] = useState(true)
+  const[validLastName , setvalidLastName] = useState(true)
+  const[validEmail , setvalidEmail] = useState(true)
+  const[validPass , setvalidPass] = useState(true)
+  const[validcPass , setvalidCpass]=useState(true)
 
   const navigate = useNavigate();
 
   const notify = (text) => {
     toast.error(text, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }
+
+const  notifySignup = (text) => {
+    toast.success(text, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -44,6 +57,13 @@ export default function Signup(props) {
       navigate("/")
     }, 2000)
   }
+function setDefault(){
+  setCpass("")
+  setEmail("")
+  setFirstName("")
+  setLastName("")
+  setPass("")
+}
 
   async function handleFormSubmit(e) {
 e.preventDefault();
@@ -59,7 +79,16 @@ e.preventDefault();
           localStorage.setItem("User", res.data.response.name)
           localStorage.setItem("SessionId", res.data.session)
           localStorage.setItem("Role", "User")
-          navigateToHome()
+          setDefault()
+          notifySignup("Signup Successfull , check email");
+          setTimeout( ()=>{
+          
+            navigateToHome()
+          },2000)
+       
+        }
+        else if(res.data.status === 2){
+          notify("empty values")
         }
 
         else if (res.data.status === 1) {
