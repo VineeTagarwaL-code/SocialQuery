@@ -102,5 +102,5 @@ we are waiting for your prs !
 Feel free to contact me on [Twitter](https://twitter.com/vineet_codes) or [LinkedIn](https://www.linkedin.com/in/vineetagarwal2004/), know more about me at [vineet.app](https://vineetagarwal.netlify.app/)
 
 [![Twitter](https://img.shields.io/badge/Twitter-follow-blue.svg?logo=twitter&logoColor=white)](https://twitter.com/vineet_codes/) [![Instagram](https://img.shields.io/badge/Instagram-follow-purple.svg?logo=instagram&logoColor=white)](https://www.instagram.com/codewithvineet/) 
-
+![Alt](https://repobeats.axiom.co/api/embed/7cafa82ef6b3a1d8cb75fff1164dcb4f6eac25f2.svg "Repobeats analytics image")
 
