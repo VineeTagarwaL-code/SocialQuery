@@ -97,7 +97,7 @@ export default function Login(props) {
     theme: "light",
   });
 
-  const url = "https://social-query-api.vercel.app/"
+  const url = "http://localhost:8000"
 
   const navigate = useNavigate();
 
@@ -130,8 +130,10 @@ export default function Login(props) {
 
 
             //if the response is 1 , user is logged in we will set a session id in the logged in and name of the user
-
-            localStorage.setItem("User", res.data.response.name)
+            console.log(res.data)
+            localStorage.setItem("FirstName", res.data.response.firstName)
+            localStorage.setItem("LastName", res.data.response.lastName)
+            localStorage.setItem("Email", res.data.response.email)
             localStorage.setItem("SessionId", res.data.session)
             localStorage.setItem("Role", "User")
             props.setIsLoggedIn(true)
