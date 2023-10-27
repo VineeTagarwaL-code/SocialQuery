@@ -1,12 +1,94 @@
-.body{
-  
-    height: 100%;
-    height: 100%;
-    
+@import url('https://fonts.googleapis.com/css2?family=Meddon&family=Open+Sans&display=swap');
+
+#mainCont{
+    display: flex;
+    height: 100vh;
 }
 
+#flower{
+    height: 60px;
+    position: absolute;
+    bottom: 70px;
+    left: 10px;
+}
 
-.main{
-background-color: transparent;
-    height: 100%;
+.userSec{
+    position: absolute !important;
+    visibility: hidden;
+}
+
+#sidebar{
+    flex: 10.1%;
+    overflow: scroll;
+    position: relative;
+    border-right: 1px solid rgb(190, 190, 190);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    
+     align-items: center;
+     justify-content: flex-start;
+}
+#sidebarSec1{
+    margin-top: 2em;
+}
+
+#QueryList{
+    flex: 80%;
+}
+
+#listHeader{
+    font-family: var(--open-font);
+    letter-spacing: .8px;
+    color: rgb(202, 202, 202);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.listItemsUl{
+    list-style-type: none;
+    padding-left: none !important;
+  
+}
+#q{
+    padding-left: 3px;
+}
+.listItems{
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 190px;
+    margin-left: 5px;
+    border-radius: 6px;
+     background-color: rgb(236, 236, 236);
+
+    padding: 5px 10px 5px 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.listItems:hover{
+    background-color: rgb(184, 184, 184);
+    color:  rgb(59, 59, 59); 
+    transition: .5s ease-in-out;
+}
+.item{
+    font-family: 'Open Sans', sans-serif;
+    
+    font-size: 18px;
+    color: rgb(73, 73, 73);
+    margin-bottom: 0.2rem !important;
+}
+
+#sidebarSec{
+    
+    padding-inline: 15px;
+}
+.sidebarSec{
+    margin-bottom: 2em;
+}
+
+@media (max-width: 575px) {
+    
 }
