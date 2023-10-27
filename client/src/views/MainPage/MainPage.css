@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Meddon&family=Open+Sans&display=swap');
 
 #mainCont{
+    overflow: scroll;
+    scroll-behavior: smooth;
     display: flex;
     height: 100vh;
 }
@@ -17,6 +19,7 @@
     visibility: hidden;
 }
 
+
 #sidebar{
     flex: 10.1%;
     overflow: scroll;
@@ -24,8 +27,8 @@
     border-right: 1px solid rgb(190, 190, 190);
     display: flex;
     flex-direction: column;
-    height: 100vh;
-
+    height: 100%;
+    border-bottom: 1px solid rgb(190, 190, 190);
     
      align-items: center;
      justify-content: flex-start;

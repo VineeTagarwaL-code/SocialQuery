@@ -8,7 +8,7 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
 
     const URL = "http://localhost:8000"
     const role = localStorage.getItem("Role")
-    const user = localStorage.getItem("User")
+    const user = localStorage.getItem("FirstName")
     const [categories, setCategories] = useState([])
 
     const [question, setQuestion] = useState("")
@@ -50,12 +50,14 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
     let userlogged = true;
     //saving the question added by the user 
     const handleSaveQ = async () => {
-
+        console.log("first" , "inside ")
         if (isLoggedIn) {
             try {
+                console.log("inside ")
                 await axios.post(`${URL}/api/v1/query`, {
                     question, cat, approve, user
                 }).then((res) => {
+
                     if (res.status === 201) {
                         setIsQuestionAdded(true)
                         setIsNewQ(true)
