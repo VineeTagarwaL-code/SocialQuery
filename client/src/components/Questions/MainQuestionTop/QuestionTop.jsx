@@ -8,7 +8,7 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
 
     const URL = "http://localhost:8000"
     const role = localStorage.getItem("Role")
-    const user = localStorage.getItem("User")
+    const user = localStorage.getItem("FirstName")
     const [categories, setCategories] = useState([])
 
     const [question, setQuestion] = useState("")
@@ -50,12 +50,14 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
     let userlogged = true;
     //saving the question added by the user 
     const handleSaveQ = async () => {
-
+        console.log("first" , "inside ")
         if (isLoggedIn) {
             try {
+                console.log("inside ")
                 await axios.post(`${URL}/api/v1/query`, {
                     question, cat, approve, user
                 }).then((res) => {
+
                     if (res.status === 201) {
                         setIsQuestionAdded(true)
                         setIsNewQ(true)
@@ -191,17 +193,7 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
                     onChange={(e) => { setQuery(e.target.value) }}
                     
                 />
-                <div className='categoriesList d-flex flex-start mt-4 flex-wrap align-items-center'>
-                    <button className='categories' onClick={getQuery}>All</button>
-                    {
-                        categories.map((item) => {
-                            return (
-                                <button className='categories' key={item.id} onClick={() => handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
-                            )
-                        })
-                    }
-
-                </div>
+       
             </div>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">

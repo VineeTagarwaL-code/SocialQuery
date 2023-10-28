@@ -2,19 +2,25 @@ import React from 'react'
 import Button from '../../../../utils/Button/Button'
 import './MainNav.css'
 
-
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faBox, faUser, faEnvelope, faPen, faPersonChalkboard, faQuestion, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 
 
-function MainNav({ text }) {
+function MainNav({ text , setQuery }) {
+    const navigate = useNavigate();
+    function handleLogout(){
+        console.log("hello")
+        localStorage.clear(); 
 
+        navigate('/login')
 
+    } 
     const firstName = localStorage.getItem("FirstName")
     const lastName = localStorage.getItem("LastName")
     const capitalizedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
-    console.log(firstName, lastName)
+  
 
     const fullName = firstName + " " + capitalizedLastName;
     return (
@@ -28,11 +34,13 @@ function MainNav({ text }) {
 
                 <div className='utilities inner-content'>
                     <div>
-                        <input type="text" placeholder='Search...' id='search' className={`${text}`}></input>
+                        <input type="text" placeholder='Search...'
+                         onChange={(e) => { setQuery(e.target.value) }}
+                          id='search' className={`${text}`}></input>
                     </div>
                     <div id='btnCont'>
                         <div className='btn2 manage'> <Button text="Manage" icon="cog-outline" /></div>
-                        <div className='btn2'> <Button text="logout" icon="log-out-outline" /></div>
+                        <div className='btn2'onClick={handleLogout}> <Button text="logout" icon="log-out-outline" /></div>
 
                     </div>
 
@@ -48,7 +56,7 @@ function MainNav({ text }) {
 
                 <div className='utilitiesM'>
                     <input type="text" placeholder='Search...' id='search1' className={`${text}`}></input>
-                    <div className='btn2'> <Button text="logout" icon="log-out-outline" /></div>
+                    <div className='btn2' onClick={handleLogout} > <Button text="logout" icon="log-out-outline" /></div>
 
                 </div>
 
