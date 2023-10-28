@@ -49,7 +49,7 @@ export default function MainPage() {
   const [catReq, setCatReq] = useState("")//for the category request of the user
 
 
-  //primary function for fetching the question from the database
+
   const getQuestionList = async () => {
     try {
       await axios.get(`${URL}/api/v1/query`).then((res) => {
