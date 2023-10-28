@@ -4,6 +4,7 @@
     overflow: scroll;
     scroll-behavior: smooth;
     display: flex;
+    user-select: none;
     height: 100vh;
 }
 
@@ -92,6 +93,181 @@
     margin-bottom: 2em;
 }
 
-@media (max-width: 575px) {
-    
+.categoriesSort_list{
+    display: flex;
+    width: 180px;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    padding-left: 10px;
+
+}
+.catList{
+    background-color:  rgb(34, 158, 246);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    padding: 2px 12px 2px 12px;
+}
+.modalForm{
+ 
+    display: flex;
+    flex-direction: column;
+   
+}
+label{  
+    padding-left: 5px;
+    font-size: 18px;
+    color: black;
+   padding-bottom: 5px;
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+select{
+    margin-top: 5px;
+    border-radius: 12px;
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgb(212, 212, 212);
+    padding-left: 10px;
+    color: rgb(72, 72, 72);
+}
+
+
+option{
+    border-radius: 12px;
+}
+
+
+.labelT{
+      font-family: 'Quicksand', sans-serif;
+      color: rgb(79, 79, 79);
+}
+
+
+.Add__inputs{
+   
+  border: 1px solid rgb(115, 115, 115);
+    border-radius: 12px;
+    padding: 5px 5px 5px 5px;
+    padding-left: 10px;
+}
+
+.filter{
+    color: var(--main-color);
+}
+
+
+#header__btnConts{
+
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 575.98px) {
+  
+#header__btnConts{
+
+    flex-direction: column;
+
+}
+    .headerQ{
+        font-size: 25px;
+    }
+    .AddQ{
+        width: 100px;
+        font-size: 12px;
+    }
+    .filter{
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* CSS styles to be applied */
+
+    .headerQ{
+        font-size: 30px;
+    }
+    .AddQ{
+        width: 120px;
+        font-size: 16px;
+    }
+    .filter{
+        font-size: 15px;
+    }
+}
+
+/* Medium Devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 999.98px) {
+    /* CSS styles to be applied */
+
+}
+
+/* Large Devices (992px - 1199px) */
+@media (min-width: 1000px) and (max-width: 1199.98px) {
+    /* CSS styles to be applied */
+
+}
+
+@media (max-width:1200px) {}
+
+/* Extra Large Devices (1200px and higher) */
+@media (min-width: 1200px) {
+    /* CSS styles to be applied */
+
+}
+@media (max-width: 575.98px) {
+  
+    .headerQ{
+        font-size: 25px;
+    }
+    .AddQ{
+        width: 100px;
+        font-size: 12px;
+    }
+    .filter{
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    /* CSS styles to be applied */
+
+    .headerQ{
+        font-size: 30px;
+    }
+    .AddQ{
+        width: 120px;
+        font-size: 16px;
+    }
+    .filter{
+        font-size: 15px;
+    }
+}
+
+/* Medium Devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 999.98px) {
+    /* CSS styles to be applied */
+
+}
+
+/* Large Devices (992px - 1199px) */
+@media (min-width: 1000px) and (max-width: 1199.98px) {
+    /* CSS styles to be applied */
+
+}
+
+@media (max-width:1200px) {}
+
+/* Extra Large Devices (1200px and higher) */
+@media (min-width: 1200px) {
+    /* CSS styles to be applied */
+
 }

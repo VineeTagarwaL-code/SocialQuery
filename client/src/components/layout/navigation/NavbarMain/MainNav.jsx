@@ -20,7 +20,7 @@ function MainNav({ text , setQuery }) {
     const firstName = localStorage.getItem("FirstName")
     const lastName = localStorage.getItem("LastName")
     const capitalizedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
-    console.log(firstName, lastName)
+  
 
     const fullName = firstName + " " + capitalizedLastName;
     return (

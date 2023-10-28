@@ -193,17 +193,7 @@ export default function QuestionTop({ setIsNewQ, setQuery, isLoggedIn, setCatReq
                     onChange={(e) => { setQuery(e.target.value) }}
                     
                 />
-                <div className='categoriesList d-flex flex-start mt-4 flex-wrap align-items-center'>
-                    <button className='categories' onClick={getQuery}>All</button>
-                    {
-                        categories.map((item) => {
-                            return (
-                                <button className='categories' key={item.id} onClick={() => handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
-                            )
-                        })
-                    }
-
-                </div>
+       
             </div>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">

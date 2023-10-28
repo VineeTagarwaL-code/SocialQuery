@@ -145,7 +145,7 @@ export default function QuestionList({ questionList, isLoggedIn, setQuestionList
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
-        // ...
+        notifyCopied()
       })
       .catch((error) => {
         console.error('Error copying text to clipboard:', error);
@@ -155,6 +155,20 @@ export default function QuestionList({ questionList, isLoggedIn, setQuestionList
 
   const notify = () => {
     toast.error('Please Login / Signup ', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      toastId: customId
+    });
+  };
+
+  const notifyCopied = () => {
+    toast.success('Copied', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
