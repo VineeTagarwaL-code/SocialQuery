@@ -283,6 +283,8 @@ export default function MainPage() {
       <ToastContainer />
       <MainNav text={text} setQuery={setQuery} />
       <div id='mainCont'>
+
+
         <aside id='sidebar'>
           <div id="sidebarSec1" className='sidebarSec userSec'>
             <h5 id='listHeader'>User</h5>
@@ -295,7 +297,7 @@ export default function MainPage() {
             </div>
           </div>
           <div id="sidebarSec1" className='sidebarSec'>
-            <h5 id='listHeader'>ADD</h5>
+            <h5 id='listHeader'>Add</h5>
             <div className="listItemsUl">
               <div className="listItems" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <FontAwesomeIcon icon={faQuestion} style={{ color: "#797979" }} size="lg" />
@@ -350,11 +352,15 @@ export default function MainPage() {
               </div>
             </div>
           </div>
-
         </aside>
+
+
+
         <div id='QueryList'>
           <QuestionList isLoggedIn={isLoggedIn} questionList={questionList} getQuestionList={getQuestionList} />
         </div>
+
+
       </div>
 
       <div>

@@ -1,0 +1,7 @@
+@media (min-width: 0px) and (max-width: 768px) {
+    /* Your CSS styles for all viewports go here */
+    .sidebar{
+        visibility: hidden !important;
+    }
+  }
+  
