@@ -1,5 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 :root{
     --main-color:#4741FF;
     --primary-color: #2B61EC;
@@ -7,41 +13,49 @@
     --sub-font:'Roboto', sans-serif;
     --open-font:'Open Sans', sans-serif;
     --red : rgb(240, 89, 89);
+    --gray-1: #111;
+    --gray-2: #191919;
+    --gray-3: #222;
+    --gray-4: #2a2a2a;
+    --gray-5: #313131;
+    --gray-6: #3a3a3a;
+    --gray-7: #484848;
+    --gray-8: #606060;
+    --gray-9: #6e6e6e;
+    --gray-10: #7b7b7b;
+    --gray-11: #b4b4b4;
+    --gray-12: #eee;
 }
+
+html{
+    margin: 0;
+    padding:0;
+   
+    box-sizing: border-box;
+}
+
+
 
 .App{
     z-index: 1;
     height: 100%;
+    background-color: var(--gray-1);
   
 }
 
-@media (max-width: 575.98px) {
-  
- 
+.main{
+    background-color: var(--gray-1);
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-    /* CSS styles to be applied */
-
-
+.text-main{
+    color: var(--gray-11);
+    
 }
 
-/* Medium Devices (768px - 991px) */
-@media (min-width: 768px) and (max-width: 999.98px) {
-    /* CSS styles to be applied */
-
+.bg-main{
+    background-color: var(--gray-1);
 }
 
-/* Large Devices (992px - 1199px) */
-@media (min-width: 1000px) and (max-width: 1199.98px) {
-    /* CSS styles to be applied */
-
-}
-
-@media (max-width:1200px) {}
-
-/* Extra Large Devices (1200px and higher) */
-@media (min-width: 1200px) {
-    /* CSS styles to be applied */
-
+.text-sec{
+    color:var(--gray-7);
 }
