@@ -76,7 +76,9 @@ e.preventDefault();
       }).then((res) => {
         if (res.data.status === 0) {
           props.setIsLoggedIn(true);
-          localStorage.setItem("User", res.data.response.name)
+          localStorage.setItem("FirstName", res.data.response.firstName)
+          localStorage.setItem("LastName", res.data.response.lastName)
+          localStorage.setItem("Email", res.data.response.email)
           localStorage.setItem("SessionId", res.data.session)
           localStorage.setItem("Role", "User")
           setDefault()

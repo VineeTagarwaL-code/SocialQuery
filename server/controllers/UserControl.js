@@ -8,6 +8,7 @@ const login = asyncWrap(async (req, res) => {
 console.log(req.body)
     const check = await User.findOne({ email, password: password });
     if (check) {
+        console.log(check)
         const session = uuidv4();
         return res.status(201).json({ status: "successfull", response: check, session: session })
     }
