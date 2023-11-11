@@ -291,7 +291,7 @@ export default function MainPage() {
             <div className="listItemsUl">
               <div className="listItems">
                 <FontAwesomeIcon icon={faUser} style={{ color: "#292929" }} size="lg" />
-                <p className='item' id='q'>{fullName}</p>
+                <p className='item' id='q'>{fullName ? fullName : ""}</p>
               </div>
 
             </div>
