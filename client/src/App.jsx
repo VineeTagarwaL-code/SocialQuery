@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/layout/navigation/Nav/Navbar';
 
 const Login  =  React.lazy(()=> import('./views/AuthViews/LoginView/LoginPage'))
-const Main = React.lazy(()=> import('./views/Main/Main'))
+const Main = React.lazy(()=> import('./views/Main/Main.jsx'))
 
 const Loading = React.lazy(()=> import('./utils/Loader/Loading'))
 const Signup = React.lazy(() => import('./views/AuthViews/SignupView/SignupPage'));
