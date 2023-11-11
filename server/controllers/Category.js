@@ -17,7 +17,7 @@ const addCategory = asyncWrap(async (req, res) => {
       const { AddCat } = req.body
       const check = await Category.findOne({ Cat_name: AddCat })
       if (check) {
-        res.status(302).json({ status: "successfull", response: "Category already Exists" })
+        res.status(202).json({ status: "successfull", response: "Category already Exists" })
       } else {
         // const result = Math.random().toString(36).substring(2,7);
         const newC = new Category({

@@ -86,8 +86,6 @@ export default function MainPage() {
     try {
       axios.get(`${URL}/api/v1/regEx`, { params: { query: query } }).then((res) => {
         setQuestionList(res.data.response)
-
-
       })
     } catch (e) {
       console.error(e)
