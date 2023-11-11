@@ -1,0 +1,18 @@
+.sideBar{
+  visibility: hidden;
+  position: absolute;
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+    /* Your CSS styles for all viewports go here */
+    .nav-text{
+        position: absolute;
+       visibility: hidden !important;
+    }
+
+    .sideBar{
+      visibility: visible;
+      position: relative;
+    }
+  }
+  

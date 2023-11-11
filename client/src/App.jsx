@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<React.Suspense fallback={<Loading/>}> 
           <Navbar/>
-          <Main />
+           <Main/>
           </React.Suspense>} />
           <Route path="/login"element={<React.Suspense fallback={<Loading/>}> <Login setIsLoggedIn={setIsLoggedIn} /> </React.Suspense>  } />
           <Route path="/signup" element={<React.Suspense fallback={<Loading/>}><Signup setIsLoggedIn={setIsLoggedIn} /></React.Suspense>} />
