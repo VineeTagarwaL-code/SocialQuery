@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket, faFilter, faMagnifyingGlass, faGear, faBars } from '@fortawesome/free-solid-svg-icons'
 import { ToastContainer, toast } from 'react-toastify';
 import './Navbar.css'
-function Navbar() {
+function Navbar({setQuery }) {
   const navigate = useNavigate();
   function handleLogout() {
     localStorage.removeItem("Email")
@@ -49,6 +49,8 @@ function Navbar() {
         focus:outline
         focus:outline-stone-900
         text-sm rounded-md bg-transparent border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400'
+
+        onChange={(e) => { setQuery(e.target.value) }}
             />
             <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#6e6e6e" }} />
           </div>
