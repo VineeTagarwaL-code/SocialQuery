@@ -3,7 +3,7 @@ import axios from 'axios'
 import './QuestionList.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCirclePlus, faThumbsUp, faCopy } from '@fortawesome/free-solid-svg-icons'
+import { faCirclePlus, faThumbsUp, faCopy , faHeart, faComment, faBars, faUser } from '@fortawesome/free-solid-svg-icons'
 
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -183,56 +183,100 @@ export default function QuestionList({ questionList, isLoggedIn, setQuestionList
 
 
   return (
-    <div className='container QuestionList px-0 mt-4'>
-      {questions.map((items, index) => {
+    <div className='px-2 md:px-6 pt-16 pb-16 md:pt-20 md:pb-44 max-w-[80vw]  md:mx-auto'>
+      {questions.map((item, index) => {
         return (
-          <div className='container-fluid QuestionCont p-4' key={index}>
-            <div id='header__top'>
-              <div id='headerLeft'>
-                <button className='catBtn Btnb '>{items.Category}</button>
-                <button className='crtBtn Btnb'>{items.CreatedBy}</button>
-                <p
-                  className='remarks'
-                  onClick={() => {
-                    handleRemarkToggle(index); // Pass the index of the clicked item
-                  }}
-                >
-                  <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#4f4f4f", }} size="lg" />
-                </p>
+          <div className=' bg-stone-900 px-3 md:px-6 py-3 flex justify-between mb-5 rounded-lg w-[fit-content] min-w-[300px] md:w-[600px]'>
+            <div>
+              <h1 className='md:text-xl text-sm text-stone-500 mb-4 inter'>{item.Question}</h1>
+              <div className='flex gap-2'>
+                <div className='likes px-2 py-1 rounded-lg bg-stone-700 max-w-[40px]' onClick={() => {
+                  handleLikeToggle(index,)
+                  handleLike(item._id, activeUser)
+                }}>
+                <FontAwesomeIcon icon={faHeart} style={{ color: "rgb(120, 113, 108)" }} />
+                   <p className='text-stone-500 text-xs '>{item.like}</p>
+                </div>
+
+                <div className='flex justify-center items-center gap-1 px-2 py-1 rounded-lg bg-stone-700 max-w-[fit-content]' >
+                <FontAwesomeIcon icon={faComment } style={{ color: "rgb(120, 113, 108)" }} />
+                   <p className='text-stone-500 text-xs hText'>Remarks</p>
+                </div>
+              
               </div>
-
-              <p className='likes' onClick={() => {
-                handleLikeToggle(index,)
-                handleLike(items._id, activeUser)
-              }}>
-
-                <FontAwesomeIcon icon={faThumbsUp} style={{ color: "#4f4f4f", }} />
-
-                <span style={{ "color": "blue" }}>{items.like}</span>
-              </p>
             </div>
-
-            <h3 className='Question'>{items.Question}</h3>
-
-            <div className='footerQ d-flex justify-content-between'>
-              <div className='InfoBtn'>
-                {/* <button className='catBtn Btnb me-4'>{items.Category}</button>
-                <button className='crtBtn Btnb'>{items.CreatedBy}</button> */}
+            <div className=' md:ml-10 ml-5 flex flex-col justify-between'>
+              <div className='flex flex-nowrap gap-2 self-end'>
+              <div className='flex justify-center items-center gap-2 px-2 py-1 rounded-lg bg-stone-800 max-w-[fit-content]' >
+                <FontAwesomeIcon icon={faBars } style={{ color: "rgb(120, 113, 108)" }} size="xs" />
+                   <p className='text-stone-600 text-xs md:text-sm hText'>{item.Category}</p>
+                </div>
+                <div className='flex justify-center items-center gap-2 px-2 py-1 rounded-lg bg-stone-800 max-w-[fit-content]' >
+                <FontAwesomeIcon icon={faUser } style={{ color: "rgb(120, 113, 108)" }} size="xs"/>
+                   <p className='text-stone-600 text-xs md:text-sm hText'>{item.CreatedBy}</p>
+                </div>
               </div>
-              <button className='copyBtn ' onClick={() => handleClick(items.Question)}>
-                <FontAwesomeIcon style={{ color: "#797979", }} icon={faCopy} />
-              </button>
+              <div className='self-end cursor-pointer'  onClick={() => handleClick(item.Question)}>
+              <FontAwesomeIcon  style={{ color: "rgb(120, 113, 108)" }} icon={faCopy} />
+                </div>
             </div>
-
-
           </div>
-        );
+        )
       })}
-      <ToastContainer />
     </div>
   );
 }
+// Previous code 
 
+{/* <div className='container QuestionList px-0 mt-4'>
+{questions.map((items, index) => {
+  return (
+    <div className='container-fluid QuestionCont p-4' key={index}>
+      <div id='header__top'>
+        <div id='headerLeft'>
+          <button className='catBtn Btnb '>{items.Category}</button>
+          <button className='crtBtn Btnb'>{items.CreatedBy}</button>
+          <p
+            className='remarks'
+            onClick={() => {
+              handleRemarkToggle(index); // Pass the index of the clicked item
+            }}
+          >
+            <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#4f4f4f", }} size="lg" />
+          </p>
+        </div>
+
+        <p className='likes' onClick={() => {
+          handleLikeToggle(index,)
+          handleLike(items._id, activeUser)
+        }}>
+
+          <FontAwesomeIcon icon={faThumbsUp} style={{ color: "#4f4f4f", }} />
+
+          <span style={{ "color": "blue" }}>{items.like}</span>
+        </p>
+      </div>
+
+      <h3 className='Question'>{items.Question}</h3>
+
+      <div className='footerQ d-flex justify-content-between'>
+        <div className='InfoBtn'>
+          {/* <button className='catBtn Btnb me-4'>{items.Category}</button>
+          <button className='crtBtn Btnb'>{items.CreatedBy}</button> */}
+{/*  </div>
+        <button className='copyBtn ' >
+          <FontAwesomeIcon style={{ color: "#797979", }} icon={faCopy} />
+        </button>
+      </div>
+
+
+    </div>
+  );
+})}
+<ToastContainer />
+</div> */}
+
+//
 
 //    {/* ... Rest of your code */}
 //    {addRemarksToggled[index] ? (
