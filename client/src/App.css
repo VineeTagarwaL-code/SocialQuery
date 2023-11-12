@@ -12,6 +12,7 @@
     --main-font:'Quicksand', sans-serif;
     --sub-font:'Roboto', sans-serif;
     --open-font:'Open Sans', sans-serif;
+
     --red : rgb(240, 89, 89);
     --gray-1: #111;
     --gray-2: #191919;
@@ -43,7 +44,9 @@ html{
   
   
 }
-
+.inter{
+    font-family: 'Inter', sans-serif;
+}
 .main{
     background-color: var(--gray-1);
 }
