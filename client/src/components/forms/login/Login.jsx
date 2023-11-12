@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useFormik } from 'formik';
+
 import * as Yup from 'yup';
 import axios from 'axios';
 import '../../forms/form.css'
@@ -122,8 +122,7 @@ export default function Login(props) {
 
           if (res.status === 200) {
 
-            formik.setFieldValue("name", "")
-            formik.setFieldValue("password", "")
+
             notifyFail(res.data.response)
           }
           else if (res.status === 201) {

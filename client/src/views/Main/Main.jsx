@@ -44,6 +44,7 @@ function Main({ query }) {
 
 
   const getQuestionList = async () => {
+    console.log("called")
     try {
       await axios.get(`${URL}/api/v1/query`).then((res) => {
         console.log("question", res)
@@ -67,6 +68,7 @@ function Main({ query }) {
   //the primary useEffect for the fetching the credentials from localstorage
   useEffect(() => {
     const id = localStorage.getItem("SessionId")
+    console.log("useEFFECT CALLED")
     getQuestionList()
     if (id != null) {
       setIsLoggedIn(true)
@@ -99,7 +101,7 @@ function Main({ query }) {
 
   //useEffect for calling the function on updation
   useEffect(() => {
-    console.log(query)
+   
     getQuery(query)
   }, [query])
 
