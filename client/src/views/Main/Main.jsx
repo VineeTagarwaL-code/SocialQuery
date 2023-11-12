@@ -4,6 +4,7 @@ import axios from 'axios'
 import 'animate.css';
 import QuestionList from '../../components/Questions/QuestionList/QuestionList';
 import { ToastContainer, toast } from 'react-toastify';
+import OffCanvas from '../../components/layout/OffCanvas/OffCanvas';
 
 function Main({ query }) {
   const [text, setClickedText] = useState("")
@@ -280,6 +281,7 @@ function Main({ query }) {
   return (
     <div className=' h-[calc(100vh-68px)] w-screen main overflow-scroll  '>
       <SideBar handleCatShow={handleCatShow} catShow={catShow} categories={categories} handleCatClick={handleCatClick} />
+      <OffCanvas handleCatShow={handleCatShow} catShow={catShow} categories={categories} handleCatClick={handleCatClick}/>
       <div className=' flex justify-end'>
         <div className=' max-w-[100vw] md:w-[80vw] w-[100vw] px-2 py-2 md:px-6 flex justify-center animate__animated animate__bounce overflow-scroll'>
           <QuestionList isLoggedIn={isLoggedIn} questionList={questionList} getQuestionList={getQuestionList} />
