@@ -143,7 +143,7 @@ function SideBar({ handleCatShow , catShow , categories , handleCatClick}) {
                             </div>
 
 
-                            <p className='text-sec mb-1 group-hover:text-stone-500 text-base'>Github</p>
+                            <a className='text-sec mb-1 group-hover:text-stone-500 text-base' href="https://github.com/VineeTagarwaL-code/SocialQuery" target='_blank'>Github</a>
                         </div>
                         <div className='flex items-center px-4 rounded-lg  group hover:bg-stone-900  w-[fit-content]  group cursor-pointer'>
 
@@ -151,7 +151,7 @@ function SideBar({ handleCatShow , catShow , categories , handleCatClick}) {
                                 <FontAwesomeIcon icon={faUserSecret} style={{ color: "#484848" }} />
                             </div>
 
-                            <p className='text-sec mb-1 group-hover:text-stone-500 text-base'>Creator</p>
+                            <a className='text-sec mb-1 group-hover:text-stone-500 text-base' href="https://github.com/VineeTagarwaL-code" target='_blank'>Creator</a>
                         </div>
 
                     </div>

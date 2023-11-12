@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightFromBracket, faFilter, faMagnifyingGlass, faGear, faBars } from '@fortawesome/free-solid-svg-icons'
 import { ToastContainer, toast } from 'react-toastify';
 import './Navbar.css'
-function Navbar({setQuery }) {
+function Navbar({ setQuery }) {
   const navigate = useNavigate();
   function handleLogout() {
     localStorage.removeItem("Email")
@@ -38,9 +38,13 @@ function Navbar({setQuery }) {
       <nav className=' max-w-[100vw] md:w-[80vw] w-[100vw] px-2 py-2 md:px-6 flex justify-between '>
 
         <div className='flex'>
-          <div className='sideBar mt-[2px]'>
+
+
+          <div className='sideBar mt-[2px]' data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" >
             <FontAwesomeIcon icon={faBars} style={{ color: "#6e6e6e" }} />
           </div>
+
+
           <div className='flex justify-start items-center  max-w-[200px] w-[170px] cursor:pointer ml-3 '>
             <input type='text'
               placeholder='Search Query...'
@@ -50,7 +54,7 @@ function Navbar({setQuery }) {
         focus:outline-stone-900
         text-sm rounded-md bg-transparent border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400'
 
-        onChange={(e) => { setQuery(e.target.value) }}
+              onChange={(e) => { setQuery(e.target.value) }}
             />
             <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#6e6e6e" }} />
           </div>
@@ -72,6 +76,11 @@ function Navbar({setQuery }) {
           </li>
         </ul>
       </nav>
+
+
+
+
+
     </header>
   )
 }
