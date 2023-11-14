@@ -13,23 +13,31 @@ const Loading = React.lazy(()=> import('./utils/Loader/Loading'))
 const Signup = React.lazy(() => import('./views/AuthViews/SignupView/SignupPage'));
 
 
+
+
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   
+
+
 
   return (
     <Router>
       <div className="App">
         <Routes>
           <Route path="/" element={<React.Suspense fallback={<Loading/>}> 
+   
     
            <Main2/>
       
           </React.Suspense>} />
           <Route path="/login"element={<React.Suspense fallback={<Loading/>}>
+
+   
+            <Login setIsLoggedIn={setIsLoggedIn}/>
      
-             <Login setIsLoggedIn={setIsLoggedIn} />
+      
    
             
               </React.Suspense>  } />
