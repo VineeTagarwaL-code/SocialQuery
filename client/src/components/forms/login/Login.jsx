@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import * as Yup from 'yup';
 import axios from 'axios';
-import '../../forms/form.css'
+
+
+
+
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -186,7 +189,7 @@ export default function Login(props) {
   return (
     <form id="form">
       <div className="form-group">
-        <label htmlFor="name" className='label__form'>Email</label>
+        <label htmlFor="name" className='text-lg '>Email</label>
         <input
           type="email"
           autoComplete="off"
@@ -195,13 +198,13 @@ export default function Login(props) {
           placeholder="Enter your email"
           onChange={(e) => { handleEmailChange(e) }}
           value={email}
-          className='input__form'
+          className=''
         />
 
       </div>
 
       <div className="form-group">
-        <label htmlFor="password" className='label__form'>Password</label>
+        <label htmlFor="password" className=''>Password</label>
         <input
           id="password"
           name="password"
@@ -211,7 +214,7 @@ export default function Login(props) {
 
           placeholder="Enter your Password"
           value={password}
-          className='input__form'
+          className=''
         />
 
       </div>

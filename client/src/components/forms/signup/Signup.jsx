@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import '../../forms/form.css'
+
 import { useNavigate } from 'react-router-dom';
 import FormError from '../formError/FormError';
 import { ToastContainer, toast } from 'react-toastify';

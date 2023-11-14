@@ -4,7 +4,6 @@ import './App.css'
 
 
 
-
 //components
 const Login  =  React.lazy(()=> import('./views/AuthViews/LoginView/LoginPage'))
 const Main2 = React.lazy(()=> import('./views/Main/Main2.jsx'))
@@ -25,6 +24,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+  
         <Routes>
           <Route path="/" element={<React.Suspense fallback={<Loading/>}> 
    
