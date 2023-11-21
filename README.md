@@ -14,6 +14,7 @@ SocialQuery is built using the tech stack :
 - [React.js](https://react.dev/) - A Ui library for building Ui Components with ease 🤌
 - [MongoDB](https://www.mongodb.com/) - a NoSQL database 🎫
 - [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework 💗
+- [Bootstrap CSS](https://getbootstrap.com/) - Build fast, responsive sites in seconds ⌚
 
 # 🛠️ Local Development
 This environment is fully on your computer and requires each dependency (for example MongoDB) to be installed and set up, but it gives you the most flexibility for customisation.
