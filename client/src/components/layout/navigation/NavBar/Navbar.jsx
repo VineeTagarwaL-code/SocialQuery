@@ -1,5 +1,7 @@
 import React , {useState}from 'react'
 // import './NavBarStyle.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faRightToBracket , faU, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import './AuthRoutes.css'
 import logo from '../../../../assests/logo.png'
 import Loading from '../../../../utils/Loader/Loading'
@@ -11,6 +13,7 @@ export default function Navbar(props) {
   const userName = localStorage.getItem('User')
   const navigate = useNavigate();
   const [isLoading , setIsLoading] = useState(true)
+
 
   const handleLoginClick = () => {
     navigate('/login')
@@ -29,50 +32,28 @@ export default function Navbar(props) {
   }, 2000)
 
   }
-  return (
-    <div id="authRoutes__cont">
-     <div  onClick={handleLoginClick}><Button icon="log-in" text="Login"/></div> 
-     <div  onClick={handleSignUpClick}><Button icon="person" text="Signup"/></div> 
-    </div>
-    // <nav className="navbar navbar-expand-lg  p-0">
-    //   <div className="container-fluid d-flex  justify-content-between align-items-center  NaVcont">
-    //     <a className="navbar-brand">
-    //     </a>
-        
-    //     <button className="navbar-toggler navbar-expand-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    //       <span className="navbar-toggler-icon"></span>
-    //     </button>
-  
-    //         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    //           <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex   w-100 justify-content-evenly">
-    //             <li className="nav-item">
-         
-    //             
-    //             </li>
-    //             <li className="nav-item">
-    //             
-    //             </li>
-    //           </ul>
-    //         </div>
-      
-     
+  return ( 
+    <div className=" absolute w-[fit-content] right-0 mt-2 mr-1 md:mt-4 md:mr-10 flex md:gap-10 gap-3 top-0">
+      <div onClick={handleLoginClick} className="flex justify-evenly items-center gap-1 bg-stone-900 md:px-3 md:py-1 px-2 py-0 rounded-md cursor-pointer group">
+        <div className='w-[20px]  md:w-[25px]'>
+        <FontAwesomeIcon icon={faRightToBracket} style={{ color: "#484848" }}  />
+        </div>
+    
+        <p className='text-sec mb-1 md:text-base group-hover:text-stone-400 text-sm'>Login</p>
+      </div>
 
-    //   </div>
-    // </nav>
+      <div   onClick={handleSignUpClick} className="flex justify-center items-center gap-1 bg-stone-900 md:px-3 md:py-1 px-2 py-0 rounded-md cursor-pointer group">
+        <div className='w-[20px]  md:w-[25px]'>
+        <FontAwesomeIcon icon={faUserPlus} style={{ color: "#484848" }}  />
+        </div>
+    
+        <p className='text-sec mb-1 md:text-base group-hover:text-stone-400 text-sm' >Signup</p>
+      </div>
+     
+     {/* <div  onClick={handleLoginClick} ><Button icon="log-in" text="Login"/></div> 
+     <div  onClick={handleSignUpClick}> <Button icon="person" text="Signup"/></div>  */}
+    </div>
   )
 }
 
 
-/*       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex   w-100 justify-content-evenly align-items-center">
-              <li className="nav-item userP d-flex ">
-                <div className='d-flex align-items-center logged__As'>
-                <h3 id='user__nav'>User : </h3>
-                 <h4 className='m-0 user'>{`${userName}`}</h4>
-                </div>
-               
-              </li>
-              <li className="nav-item">
-              <h4 className='NavLogouts m-0' onClick={handleLogoutClick}> Logout</h4>
-              </li>
-            </ul>*/ 

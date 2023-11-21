@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import * as Yup from 'yup';
 import axios from 'axios';
-import '../../forms/form.css'
+
+
+
+
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -61,41 +64,7 @@ export default function Login(props) {
     }
   }
 
-  const notifyValitdationFailed = () => toast.error(`Validation Failed`, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });
 
-
-
-  const notifySuccess = () => toast.success('Login Successfull , Loading...', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });
-
-
-  const notifyFail = (errorText) => toast.error(`${errorText}`, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "light",
-  });
 
   const url = "http://localhost:8000"
 
@@ -123,7 +92,7 @@ export default function Login(props) {
           if (res.status === 200) {
 
 
-            notifyFail(res.data.response)
+            props.notifyFail(res.data.response)
           }
           else if (res.status === 201) {
 
@@ -136,7 +105,7 @@ export default function Login(props) {
             localStorage.setItem("SessionId", res.data.session)
             localStorage.setItem("Role", "User")
             props.setIsLoggedIn(true)
-            notifySuccess();
+            props.notifySuccess();
             setTimeout(() => {
 
               navigateToHome();
@@ -156,7 +125,7 @@ export default function Login(props) {
     } else {
       setEmail('')
       setPass('')
-      notifyValitdationFailed();
+      props.notifyValitdationFailed();
     }
 
 
@@ -184,9 +153,9 @@ export default function Login(props) {
   // }, [formik.errors.name, formik.errors.password])
 
   return (
-    <form id="form">
-      <div className="form-group">
-        <label htmlFor="name" className='label__form'>Email</label>
+    <form className=" w-[100%] md:w-[50%] mt-4 flex flex-col">
+      <div className="flex flex-col mb-3">
+        <label htmlFor="name" className=' text-sm md:text-lg text-sec inter  '>Email</label>
         <input
           type="email"
           autoComplete="off"
@@ -195,13 +164,17 @@ export default function Login(props) {
           placeholder="Enter your email"
           onChange={(e) => { handleEmailChange(e) }}
           value={email}
-          className='input__form'
+          className='w-[100%] md:w-[100%] md:text-base  
+          placeholder:text-gray-400 
+          focus:outline
+          focus:outline-stone-900
+          text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
         />
 
       </div>
 
-      <div className="form-group">
-        <label htmlFor="password" className='label__form'>Password</label>
+      <div className="flex flex-col mb-3">
+        <label htmlFor="password" className='text-sm md:text-lg text-sec inter  '>Password</label>
         <input
           id="password"
           name="password"
@@ -211,25 +184,22 @@ export default function Login(props) {
 
           placeholder="Enter your Password"
           value={password}
-          className='input__form'
+          className='w-[100%] md:w-[100%] md:text-base  
+          placeholder:text-gray-400 
+          focus:outline
+          focus:outline-stone-900
+          text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
         />
 
       </div>
 
 
-      <button className="formBtn" onClick={(e) => { handleFormSubmit(e) }}>
-        Login
+      <button className="bg-stone-800 px-3 py-1 rounded-md cursor-pointer mt-4 group self-center" onClick={(e) => { handleFormSubmit(e) }}>
+        <p className='text-sec group-hover:text-green-300'>Login</p>
       </button>
-      <ToastContainer position="top-right"
-        autoClose={2000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light" />
+
+      <p className='text-sec mt-3 text-center ml-2 text-sm' >Dont have an account ? <span className='text-white underline cursor-pointer'>Signup</span> </p>
+ 
 
     </form>
   );
