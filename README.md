@@ -30,7 +30,7 @@ Before contributing or adding a new feature, please make sure you have already i
 
 You can set this up locally with the following steps , its divided into two parts `server` and `client` side setup to be exact :
 
-- copy the `.env.example` file to `.env` and update any details required
+-  copy the `.env.example` file inside the server folder to `.env` in the same folder and update any details required
 -  MongoDb is Required , You can use Docker for setting up too
 
  ⭐`SERVER SETUP`
