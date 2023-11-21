@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 async function  connect(){
-    mongoose.connect("mongodb://0.0.0.0:27017/socialQuery").then(()=>
+    mongoose.connect("process.env.MONGO_URI").then(()=>
     console.log("Mongodb Connected")
     ).catch((error)=>{
         console.log(error)
