@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -97,7 +97,7 @@ export default function Login(props) {
           else if (res.status === 201) {
 
 
-            //if the response is 1 , user is logged in we will set a session id in the logged in and name of the user
+
             console.log(res.data)
             localStorage.setItem("FirstName", res.data.response.firstName)
             localStorage.setItem("LastName", res.data.response.lastName)
@@ -133,24 +133,7 @@ export default function Login(props) {
   }
 
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     name: '',
-  //     password: '',
-  //   },
-  //   validationSchema: SignupSchema,
-  //   onSubmit: values => {
-  //      console.log("submitted")
-  //     handleFormSubmit(values.name, values.password);
-  //   },
-  // });
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     formik.setFieldError('name', '');
-  //     formik.setFieldError('password', '');
-  //   }, 5000)
-  // }, [formik.errors.name, formik.errors.password])
 
   return (
     <form className=" w-[100%] md:w-[50%] mt-4 flex flex-col">

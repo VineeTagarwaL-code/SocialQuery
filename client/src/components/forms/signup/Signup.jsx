@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import React, { useState } from 'react';
+
 import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
 import FormError from '../formError/FormError';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signup(props) {
@@ -25,31 +24,7 @@ export default function Signup(props) {
 
   const navigate = useNavigate();
 
-  const notify = (text) => {
-    toast.error(text, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
-  }
 
-const  notifySignup = (text) => {
-    toast.success(text, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
-  }
   function navigateToHome() {
     props.setIsLoading(true)
     setTimeout(() => {

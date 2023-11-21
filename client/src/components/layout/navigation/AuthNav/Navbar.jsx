@@ -1,12 +1,11 @@
 import React , {useState}from 'react'
-// import './NavBarStyle.css'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faRightToBracket , faU, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import './AuthRoutes.css'
-import logo from '../../../../assests/logo.png'
-import Loading from '../../../../utils/Loader/Loading'
+
 import { useNavigate } from 'react-router-dom';
-import Button from '../../../../utils/Button/Button';
+
 
 export default function Navbar(props) {
 
@@ -50,8 +49,6 @@ export default function Navbar(props) {
         <p className='text-sec mb-1 md:text-base group-hover:text-stone-400 text-sm' >Signup</p>
       </div>
      
-     {/* <div  onClick={handleLoginClick} ><Button icon="log-in" text="Login"/></div> 
-     <div  onClick={handleSignUpClick}> <Button icon="person" text="Signup"/></div>  */}
     </div>
   )
 }

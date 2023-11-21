@@ -1,0 +1,18 @@
+#authRoutes__cont{
+    z-index: 5;
+    display: flex;
+    width: fit-content;
+    gap: 30px;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+}
+
+@media (max-width: 575px) {
+    /* Your CSS rules for XS screens go here */
+    #authRoutes__cont{
+        right: 2vw;
+        top: 2vh;
+    }
+  
+}

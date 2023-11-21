@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+
 import './QuestionList.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCirclePlus, faThumbsUp, faCopy , faHeart, faComment, faBars, faUser } from '@fortawesome/free-solid-svg-icons'
-
-import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+
+import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faCopy , faHeart, faComment, faBars, faUser } from '@fortawesome/free-solid-svg-icons'
+import { toast } from 'react-toastify';
+
 
 const customId = "custom-id-yes";
 
 
-export default function QuestionList({ questionList, isLoggedIn, setQuestionList, getQuestionList }) {
+export default function QuestionList({ questionList, isLoggedIn,  getQuestionList }) {
 
   const questions = questionList
   const url = "http://localhost:8000/";
@@ -183,7 +184,7 @@ export default function QuestionList({ questionList, isLoggedIn, setQuestionList
 
 
   return (
-    <div className='px-2 md:px-6 pt-16 pb-16 md:pt-20 md:pb-44 max-w-[80vw]  md:mx-auto'>
+    <div className='px-2 md:px-6 pt-16 pb-16 md:pt-4 md:pb-44 max-w-[80vw]  md:mx-auto'>
       {questions.map((item, index) => {
         return (
           <div className=' bg-stone-900 px-3 md:px-6 py-3 flex justify-between mb-5 rounded-lg w-[fit-content] min-w-[300px] md:w-[600px]'>

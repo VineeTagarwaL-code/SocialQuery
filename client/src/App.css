@@ -6,14 +6,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-:root{
-    --main-color:#4741FF;
+:root {
+    --main-color: #4741FF;
     --primary-color: #2B61EC;
-    --main-font:'Quicksand', sans-serif;
-    --sub-font:'Roboto', sans-serif;
-    --open-font:'Open Sans', sans-serif;
+    --main-font: 'Quicksand', sans-serif;
+    --sub-font: 'Roboto', sans-serif;
+    --open-font: 'Open Sans', sans-serif;
 
-    --red : rgb(240, 89, 89);
+    --red: rgb(240, 89, 89);
     --gray-1: #111;
     --gray-2: #191919;
     --gray-3: #222;
@@ -28,38 +28,37 @@
     --gray-12: #eee;
 }
 
-html{
+html {
     margin: 0;
-    padding:0;  
+    padding: 0;
     background-color: var(--gray-1) !important;
-   
+
     box-sizing: border-box;
 }
 
 
 
-.App{
+.App {
     z-index: 1;
     height: 100%;
-  
-  
 }
-.inter{
+
+.inter {
     font-family: 'Inter', sans-serif;
 }
-.main{
+
+.main {
     background-color: var(--gray-1);
 }
 
-.text-main{
+.text-main {
     color: var(--gray-11);
-    
 }
 
-.bg-main{
+.bg-main {
     background-color: var(--gray-1);
 }
 
-.text-sec{
-    color:var(--gray-9);
+.text-sec {
+    color: var(--gray-9);
 }

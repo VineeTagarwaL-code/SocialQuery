@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faPlus, faLayerGroup, faQuestion, faFilter, faPen, faBars, faLink, faCodePullRequest, faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import 'animate.css';
 
-function OffCanvas({ handleCatShow , catShow , categories , handleCatClick}) {
+
+
+
+
+function OffCanvas({ handleCatShow, catShow, categories, handleCatClick }) {
 
     const firstName = localStorage.getItem("FirstName")
     const lastName = localStorage.getItem("LastName")
@@ -65,33 +69,33 @@ function OffCanvas({ handleCatShow , catShow , categories , handleCatClick}) {
 
                     <div className='flex flex-col gap-3'>
 
-                        <div className='flex items-center px-4 rounded-lg  justify-evenly w-[fit-content]  group cursor-pointer'  onClick={handleCatShow}>
+                        <div className='flex items-center px-4 rounded-lg  justify-evenly w-[fit-content]  group cursor-pointer' onClick={handleCatShow}>
                             <div className="w-[40px]">
                                 <FontAwesomeIcon icon={faBars} style={{ color: "rgb(120 ,113 ,108) " }} size="lg" />
                             </div>
 
 
                             <p className=' mb-1 text-stone-500 text-xl'>Category</p>
-                        
-                        
+
+
                         </div>
 
                         {
-                                catShow ? (
-                                    <div className=' w-[250px] ml-6 flex flex-wrap gap-2 animate__animated animate__fadeIn'>
+                            catShow ? (
+                                <div className=' w-[250px] ml-6 flex flex-wrap gap-2 animate__animated animate__fadeIn'>
 
-                                        {
-                                            categories.map((item) => {
-                                                return (
-                                                    <button className='text-stone-600 text-sm px-2 py-1 bg-stone-900 rounded-lg cursor-pointer' key={item.id} onClick={() => handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
-                                                )
-                                            })
+                                    {
+                                        categories.map((item) => {
+                                            return (
+                                                <button className='text-stone-600 text-sm px-2 py-1 bg-stone-900 rounded-lg cursor-pointer' key={item.id} onClick={() => handleCatClick(item.Cat_name)}>{item.Cat_name}</button>
+                                            )
+                                        })
 
-                                        }
+                                    }
 
-                                    </div>
-                                ) : ""
-                            }
+                                </div>
+                            ) : ""
+                        }
 
                         <div className='flex items-center px-4 rounded-lg  group hover:bg-stone-900  w-[fit-content]  group cursor-pointer' >
 

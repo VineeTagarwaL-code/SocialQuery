@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Navbar from '../../components/layout/navigation/Nav/Navbar'
 import Main from './Main'
-function Main2() {
+function MainWrapper() {
 
     const [query, setQuery] = useState("")
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -13,4 +13,4 @@ function Main2() {
   )
 }
 
-export default Main2
+export default MainWrapper
