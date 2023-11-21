@@ -1,103 +1,66 @@
 
-# SocialQuery
+# 💥 SocialQuery 
 SocialQuery: Simplifying interviews with a central query repository. Easily organize, reference, and manage questions across categories for a more efficient and well-prepared interview experience.
 
-## Project Description 
+# 🔍 Project Description 
 This web application, developed using the MERN stack, is designed to effectively manage and categorize user queries. It offers user authentication and an admin dashboard for content management on the website. Users can create accounts with unique emails, add categories, and store their queries. Furthermore, it features an attractive and innovative UI that helps users navigate and understand the platform better. The application also allows users to add comments under these queries, ensuring they never forget important questions during interviews, code reviews, or development discussions.
-## Features
 
-1. Login Page
-   - Login with the provided user id and password
-   - session management 
-   - Powered by JWT tokens
-2. Signup
-   - User can create new account using their name and add emails later
-   - session management 
-   - Powered by JWT tokens
-3. HomePage
-   - User can see queries added by peers
-   - User can see add question and add category button along with ability to filter using text , category wise
-   - User can add their own remarks and answers to the Queries
-   - User can Logout too
+# 💡 Why did i build this ?
+After checking out several open-source query management tools, I couldn't find any that fit the bill. That's what got me started on this project. It's simple but super useful, making it a great way for folks to dive into open source and for me to kick off my journey into full-stack development.
 
-## Interface 
-- Login
- ![image](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/60cfe27f-a891-4ef1-85ef-95c3f6cc0197)
+# 🟰 TechStack 
+SocialQuery is built using the tech stack :
 
-- Signup
-![Screen Shot 2023-10-25 at 23 10 35](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/4a5ddfed-43e7-4be9-ac9d-0d3c87bac597)
+- [React.js](https://react.dev/) - A Ui library for building Ui Components with ease 🤌
+- [MongoDB](https://www.mongodb.com/) - a NoSQL database 🎫
+- [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework 💗
+- [Bootstrap CSS](https://getbootstrap.com/) - Build fast, responsive sites in seconds ⌚
 
-- Mobile Views
-![Untitled design(2)](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/7b504e7c-ebf6-4aa9-876e-77851e6aea24)
+# 🛠️ Local Development
+This environment is fully on your computer and requires each dependency (for example MongoDB) to be installed and set up, but it gives you the most flexibility for customisation.
 
-## Tech stack
+`Prerequisites`
 
-#### Frontend
-- React
-  
-#### Backend
-- Nodejs
-- Express
-- MongoDB
-- Mongoose
+Before contributing or adding a new feature, please make sure you have already installed the following tools:
 
+- [NodeJs](https://nodejs.org/en/download/) 
+- [MongoDB](https://www.mongodb.com/home) (v6+)
 
+`Commands`
 
-#### Other Tools
-- Toastify
-- React Router
-- Nodemon
-- JWT
+You can set this up locally with the following steps , its divided into two parts `server` and `client` side setup to be exact :
 
+-  copy the `.env.example` file inside the server folder to `.env` in the same folder and update any details required
+-  MongoDb is Required , You can use Docker for setting up too
 
-## Deployment
-In the project directoy you can run : 
+ ⭐`SERVER SETUP`
+ 
+Navigate to `server` folder using , `cd server` then:
+- `npm install`
+- `npm start or nodemon app.js`
 
-- # 1)  Inside the server directory
-### `npm start`
+ ⭐`CLIENT SETUP`
+ 
+Navigate to `server` folder using , `cd client` then:
+- `npm install`
+- `npm run dev`
 
-Runs the app in the development mode. <br/>
-Setup .env file and add PORT and MONGO_URI as per your development need
+⚠️ Make sure mongodb is installed and env is setup properlly 
 
-Open [http://localhost:PORT](http://localhost:PORT) to view it in the browser.
+# 🥑 Features
+- 🧕 Create your account or login using pre-existing one
+- 🔍 Add Query / Category 
+- 🎫 Dynamic UI
+- 👁️ See Queries added via fellow peers
+- 💡 Filter Queries via category or RegEx
+- 🗨️ Comment / add remark on your or peer's query
+- 🎓 Much more is possible via your contribution !
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-- # 2) Inside the client directory navigate to YourQuery then run :
-### `npm install`
-installs all the necessaary packages needed for deployment 
-### `npm run dev`
-For starting the development server , note that this project uses Vite to create its react app 
-
-```shell
-we are waiting for your prs ! 
-```
-
-## Useful Links
-
-
-- [Backend Repository](https://github.com/VineeTagarwaL-code/Social-Query-backend)
-- [Backend Repository in this repo ](https://github.com/VineeTagarwaL-code/SocialQuery/tree/main/server)
+  <hr/>
 
 
 
-## Need help?
+
 
 Feel free to contact me on [Twitter](https://twitter.com/vineet_codes) or [LinkedIn](https://www.linkedin.com/in/vineetagarwal2004/), know more about me at [vineet.app](https://vineetagarwal.netlify.app/)
 
