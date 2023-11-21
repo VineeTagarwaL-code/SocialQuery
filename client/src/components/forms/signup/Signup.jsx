@@ -82,7 +82,7 @@ e.preventDefault();
           localStorage.setItem("SessionId", res.data.session)
           localStorage.setItem("Role", "User")
           setDefault()
-          notifySignup("Signup Successfull , check email");
+          props.notifySignup("Signup Successfull , check email");
           setTimeout( ()=>{
           
             navigateToHome()
@@ -90,7 +90,7 @@ e.preventDefault();
        
         }
         else if(res.data.status === 2){
-          notify("empty values")
+          props.notify("empty values")
         }
 
         else if (res.data.status === 1) {
@@ -102,7 +102,7 @@ e.preventDefault();
     }
   }else{
     console.error("validation failed")
-    notify("validation failed")
+    props.notify("validation failed")
   }
   }
 
@@ -175,27 +175,23 @@ function confirmPassValidate(e){
   }
 }
 
+
+
   return (
-    <form onSubmit={handleFormSubmit}>
-       <ToastContainer
-       position="top-right"
-       autoClose={5000}
-       hideProgressBar={false}
-       newestOnTop={false}
-       closeOnClick
-       rtl={false}
-       pauseOnFocusLoss
-       draggable
-       pauseOnHover
-       theme="dark" />
-      <div className="form-group usernameForm__cont">
+    <form onSubmit={handleFormSubmit} className=" w-[100%] md:w-[50%] mt-4 flex flex-col" >
+  
+      <div className="flex  flex-col lg:flex-row mb-3 lg:gap-5 gap-3 lg:w-[500px]">
 
         <div className='user__group'>
-          <label htmlFor="name" className='label__form' >First Name</label>
+          <label htmlFor="name" className='text-sm md:text-lg text-sec inter ' >First Name</label>
           <input
             type="text"
             name="name"
-            className='input__form usernameField'
+            className='w-[100%] md:w-[100%] md:text-base  
+            placeholder:text-gray-400 
+            focus:outline
+            focus:outline-stone-900
+            text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
             value={FirstName}
             id="name"
             placeholder="Enter your first name"
@@ -212,11 +208,15 @@ function confirmPassValidate(e){
         </div>
 
         <div className='user__group'>
-          <label htmlFor="name" className='label__form' >Last Name</label>
+          <label htmlFor="name" className='text-sm md:text-lg text-sec inter ' >Last Name</label>
           <input
             type="text"
             name="name"
-            className='input__form usernameField'
+            className='w-[100%] md:w-[100%] md:text-base  
+            placeholder:text-gray-400 
+            focus:outline
+            focus:outline-stone-900
+            text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
             id="name"
             placeholder="Enter your last name"
             value={LastName}
@@ -233,11 +233,15 @@ function confirmPassValidate(e){
         </div>
       </div>
 
-      <div className="form-group">
-        <label htmlFor="password" className='label__form'>Email</label>
+      <div className="flex flex-col mb-3">
+        <label htmlFor="password" className='text-sm md:text-lg text-sec inter '>Email</label>
         <input
           id="email"
-          className='input__form'
+          className='w-[100%] md:w-[100%] md:text-base  
+          placeholder:text-gray-400 
+          focus:outline
+          focus:outline-stone-900
+          text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
           name="email"
           type="email"
           value={Email}
@@ -252,11 +256,15 @@ function confirmPassValidate(e){
 
       </div>
 
-      <div className="form-group">
-        <label htmlFor="password" className='label__form'>Password</label>
+      <div className="flex flex-col mb-3">
+        <label htmlFor="password" className= 'text-sm md:text-lg text-sec inter'>Password</label>
         <input
           id="password"
-          className='input__form'
+          className='w-[100%] md:w-[100%] md:text-base  
+            placeholder:text-gray-400 
+            focus:outline
+            focus:outline-stone-900
+            text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
           name="password"
           type="password"
           value={Pass}
@@ -270,13 +278,17 @@ function confirmPassValidate(e){
           }
 
       </div>
-      <div className="form-group">
-        <label htmlFor="rePass" className='label__form'>Confirm Password</label>
+      <div className="flex flex-col mb-3">
+        <label htmlFor="rePass" className='text-sm md:text-lg text-sec inter'>Confirm Password</label>
         <input
           id="rePass"
           name="rePass"
           type="password"
-          className='input__form'
+          className='w-[100%] md:w-[100%] md:text-base  
+          placeholder:text-gray-400 
+          focus:outline
+          focus:outline-stone-900
+          text-sm rounded-md bg-stone-800 border-solid border-1 border-stone-800 px-2 mr-2 py-1 text-gray-400 mt-1'
           value={cPass}
           onChange={confirmPassValidate}
           placeholder="Enter your password again "
@@ -289,8 +301,8 @@ function confirmPassValidate(e){
           }
 
       </div>
-      <button className="formBtn" type="submit">
-        Signup
+      <button className="bg-stone-800 px-3 py-1 rounded-md cursor-pointer mt-4 group self-center"  type="submit">
+      <p className='text-sec group-hover:text-green-300'>Signup</p>
       </button>
     </form>
   );
