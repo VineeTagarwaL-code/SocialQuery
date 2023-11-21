@@ -33,21 +33,21 @@ export default function Navbar(props) {
 
   }
   return ( 
-    <div className=" absolute w-[fit-content] right-0 mt-4 mr-10 flex gap-10">
-      <div onClick={handleLoginClick} className="flex justify-evenly items-center gap-1 bg-stone-900 px-3 py-1 rounded-md cursor-pointer group">
-        <div className='  w-[25px]'>
+    <div className=" absolute w-[fit-content] right-0 mt-2 mr-1 md:mt-4 md:mr-10 flex md:gap-10 gap-3 top-0">
+      <div onClick={handleLoginClick} className="flex justify-evenly items-center gap-1 bg-stone-900 md:px-3 md:py-1 px-2 py-0 rounded-md cursor-pointer group">
+        <div className='w-[20px]  md:w-[25px]'>
         <FontAwesomeIcon icon={faRightToBracket} style={{ color: "#484848" }}  />
         </div>
     
-        <p className='text-sec mb-1 text-base group-hover:text-stone-400'>Login</p>
+        <p className='text-sec mb-1 md:text-base group-hover:text-stone-400 text-sm'>Login</p>
       </div>
 
-      <div   onClick={handleSignUpClick} className="flex justify-center items-center gap-1 bg-stone-900 px-3 py-1 rounded-md cursor-pointer group">
-        <div className='  w-[25px]'>
+      <div   onClick={handleSignUpClick} className="flex justify-center items-center gap-1 bg-stone-900 md:px-3 md:py-1 px-2 py-0 rounded-md cursor-pointer group">
+        <div className='w-[20px]  md:w-[25px]'>
         <FontAwesomeIcon icon={faUserPlus} style={{ color: "#484848" }}  />
         </div>
     
-        <p className='text-sec mb-1 text-base group-hover:text-stone-400'>Signup</p>
+        <p className='text-sec mb-1 md:text-base group-hover:text-stone-400 text-sm' >Signup</p>
       </div>
      
      {/* <div  onClick={handleLoginClick} ><Button icon="log-in" text="Login"/></div> 
