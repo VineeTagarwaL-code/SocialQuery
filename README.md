@@ -33,11 +33,13 @@ You can set this up locally with the following steps , its divided into two part
 -  MongoDb is Required , You can use Docker for setting up too
 
  ⭐`SERVER SETUP`
+ 
 Navigate to `server` folder using , `cd server` then:
 - `npm install`
 - `npm start or nodemon app.js`
 
  ⭐`CLIENT SETUP`
+ 
 Navigate to `server` folder using , `cd client` then:
 - `npm install`
 - `npm run dev`
