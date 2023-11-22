@@ -16,6 +16,8 @@ SocialQuery is built using the tech stack :
 - [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework 💗
 - [Bootstrap CSS](https://getbootstrap.com/) - Build fast, responsive sites in seconds ⌚
 
+# 📷 Preview
+
 # 🛠️ Local Development
 This environment is fully on your computer and requires each dependency (for example MongoDB) to be installed and set up, but it gives you the most flexibility for customisation.
 
