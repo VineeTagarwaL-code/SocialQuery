@@ -94,11 +94,13 @@ export default function LoginPage(props) {
 
       <div className=' w-[screen] md:w-[40%] pt-6 md:pt-0 md:pb-0 pb-6 flex justify-center items-center flex-col flex-nowrap'>
         <img src={query} alt="queries" className='animate__animated animate__fadeInUp' />
-        <h1 className='text-main  text-sm md:text-lg  cursor-none  inter animate__animated animate__fadeInUp'>Interested ?</h1>
-        <div className='flex flex-nowrap justify-center items-center gap-2 '>
+     
+        <div className='flex flex-nowrap justify-center items-center gap-2 border-1 rounded-sm  border-soild border-stone-300 px-3 py-2
+        group cursor-pointer hover:border-transparent custom-hover-effect
+        '>
 
-          <h1 className='text-main text-sm md:text-lg  cursor-none mb-1 underline animate__animated animate__fadeInUp'>Start you Journey now </h1>
-          <FontAwesomeIcon icon={faArrowRight} style={{ color: "white" }} className='animate__animated animate__fadeInUp' />
+          <h1 className='text-main text-sm md:text-lg  mb-1 group-hover:text-stone-900'>START YOUR JOURNEY</h1>
+          <FontAwesomeIcon icon={faArrowRight}  className=' text-stone-300 group-hover:text-stone-900' />
         </div>
 
       </div>

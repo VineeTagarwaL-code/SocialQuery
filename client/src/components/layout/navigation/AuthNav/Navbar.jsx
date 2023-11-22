@@ -1,9 +1,7 @@
 import React , {useState}from 'react'
-
+import './AuthRoutes.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faRightToBracket , faU, faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import './AuthRoutes.css'
-
 import { useNavigate } from 'react-router-dom';
 
 

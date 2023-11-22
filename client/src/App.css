@@ -62,3 +62,25 @@ html {
 .text-sec {
     color: var(--gray-9);
 }
+
+/* Define the hover effect */
+.custom-hover-effect {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Define animation on hover */
+  .custom-hover-effect:hover {
+    background-color: #e5e7eb; /* Change this color to bg-stone-300 */
+    animation: slideBackground 1s ease-in-out;
+  }
+  
+  /* Define the animation keyframes */
+  @keyframes slideBackground {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
