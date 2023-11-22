@@ -52,10 +52,7 @@ export default function QuestionList({ questionList, isLoggedIn,  getQuestionLis
   }, [isRemarkAdded])
 
   const handleAddRemark = async (e, id) => {
-    console.log("CreatedBy:", createdBy);
-    console.log("Text:", text);
-    console.log("ID :", id);
-    console.log("URL:", `${url}/api/v1/remark`);
+
 
 
     try {
@@ -65,11 +62,11 @@ export default function QuestionList({ questionList, isLoggedIn,  getQuestionLis
         setIsRemarkAdded(true)
         setRemark("")
         getQuestionList()
-        console.log(res)
+  
       })
     } catch (error) {
       setRemark("")
-      console.log("remark", error)
+
     }
 
 
@@ -121,7 +118,7 @@ export default function QuestionList({ questionList, isLoggedIn,  getQuestionLis
           }
         })
       } catch (err) {
-        console.log("Like Error", err)
+  
       }
     } else {
       notify()
@@ -185,7 +182,7 @@ export default function QuestionList({ questionList, isLoggedIn,  getQuestionLis
 
   return (
     <div className='px-2 md:px-6 pt-16 pb-16 md:pt-4 md:pb-44 max-w-[80vw]  md:mx-auto'>
-      {questions.map((item, index) => {
+      {questionList.map((item, index) => {
         return (
           <div className=' bg-stone-900 px-3 md:px-6 py-3 flex justify-between mb-5 rounded-lg w-[fit-content] min-w-[300px] md:w-[600px]'>
             <div>

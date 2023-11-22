@@ -47,10 +47,10 @@ function Main({ query }) {
 
 
   const getQuestionList = async () => {
-    console.log("called")
+
     try {
       await axios.get(`${URL}/api/v1/query`).then((res) => {
-        console.log("question", res)
+
         setQuestionList(res.data.response)
       })
     } catch (e) {
@@ -69,10 +69,10 @@ function Main({ query }) {
 
 
   //the primary useEffect for the fetching the credentials from localstorage
-  useEffect(() => {
+  useEffect( () => {
     const id = localStorage.getItem("SessionId")
-    console.log("useEFFECT CALLED")
-    getQuestionList()
+
+   getQuestionList()
     if (id != null) {
       setIsLoggedIn(true)
     }
@@ -98,7 +98,7 @@ function Main({ query }) {
         setQuestionList(res.data.response)
       })
     } catch (e) {
-      console.log(e)
+
     }
   }
 
@@ -221,7 +221,7 @@ function Main({ query }) {
         if (res.status == 201) {
           setCategories(res.data.response)
         } else {
-          console.log(res)
+
         }
 
       })
@@ -232,7 +232,7 @@ function Main({ query }) {
 
 
   function handleCatShow() {
-    console.log("cat show")
+
     setCatShow(!catShow)
   }
 
@@ -257,13 +257,13 @@ function Main({ query }) {
           AddCat
         }).then((res) => {
           if (res.status === 201) {
-            console.log(res)
+      
             setAddCat("")
             setIsCategoryAdded(true)
 
 
           } else if (res.status === 202) {
-            console.log('exists')
+     
             catExistsf()
 
           }
