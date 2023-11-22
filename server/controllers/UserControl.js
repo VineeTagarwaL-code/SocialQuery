@@ -5,10 +5,10 @@ const { v4: uuidv4 } = require('uuid');
 
 const login = asyncWrap(async (req, res) => {
     const { email, password } = req.body;
-console.log(req.body)
+
     const check = await User.findOne({ email, password: password });
     if (check) {
-        console.log(check)
+
         const session = uuidv4();
         return res.status(201).json({ status: "successfull", response: check, session: session })
     }
@@ -37,7 +37,7 @@ const signup = asyncWrap(async (req, res) => {
         role: "User",
     });
     await user.save();
-    console.log(user)
+
     const session = uuidv4();
     return res.json({ status: 0, response: user, session: session });
 })

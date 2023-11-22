@@ -29,7 +29,7 @@ const like = asyncWrap(async (req, res) => {
 
 
   const addRemark=asyncWrap( async(req, res)=>{
-    console.log("inside reamrks ")
+
     const { text, createdBy , id } = req.body;
     
     const query = await Query.findById(id)

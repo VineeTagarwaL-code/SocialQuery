@@ -35,7 +35,7 @@ const addQuery = asyncWrap(async (req, res) => {
 const regExQuery = asyncWrap(async (req, res) => {
   const { query } = req.query;
   const searchWord = query;
-  console.log(searchWord)
+
   const searchRegex = new RegExp(searchWord, 'i');
   Query.find({ Question: searchRegex }).then((response) => {
     res.status(200).json({ response: response })
