@@ -66,12 +66,12 @@ export default function LoginPage(props) {
   return (
     <div className=' h-screen w-screen main flex cont overflow-scroll'>
       <Navbar />
-      <div className='cont2 w-[screen] md:w-[60%]  bg-stone-900 flex flex-col flex-nowrap px-3 pt-4 pb-4 md:pt-16   rounded-r-lg rounded-l-lg md:rounded-r-none md:rounded-l-none overflow-scroll justify-center '>
+      <div className=' w-[screen] h-[100vh] md:w-[60%]   bg-stone-900 flex flex-col flex-nowrap   rounded-r-lg rounded-l-lg md:rounded-r-none md:rounded-l-none overflow-scroll justify-center '>
 
-        <div className='mt-12'>
+        <div className='md:mt-12 mt-2  w-[100vw] md:w-[100%]  h-[100vh] flex justify-center flex-col px-4'>
           <div className='flex mb-3'>
-            <h1 className=' text-lg md:text-4xl text-main inter animate__animated animate__fadeInUp'>Welcome To Social Query</h1>
-            <span className='text-main  text-lg md:text-4xl animate__animated animate__fadeInUp'>..</span>
+            <h1 className=' text-2xl mb-2 md:mb-0 md:text-4xl text-main inter animate__animated animate__fadeInUp'>Welcome To Social Query</h1>
+            <span className='text-main  text-2xl md:text-4xl animate__animated animate__fadeInUp '>..</span>
           </div>
           <div className='flex  w[100%] md:w-[90%] md:mb-3 md-1 animate__animated animate__fadeInUp'>
             <h2 className='text-base text-sec inter'>Social-Query is Query management app which lets you manage , store , review all your <br /> and colleagues query at one place</h2>
@@ -92,15 +92,15 @@ export default function LoginPage(props) {
 
       </div>
 
-      <div className=' w-[screen] md:w-[40%] pt-6 md:pt-0 md:pb-0 pb-6 flex justify-center items-center flex-col flex-nowrap'>
-        <img src={query} alt="queries" className='animate__animated animate__fadeInUp' />
-     
+      <div className=' hidden md:visible w-[screen] md:w-[40%] pt-6 md:pt-0 md:pb-0 pb-6 md:flex justify-center items-center flex-col flex-nowrap animate__animated animate__fadeInUp'>
+        <img src={query} alt="queries"  />
+
         <div className='flex flex-nowrap justify-center items-center gap-2 border-1 rounded-sm  border-soild border-stone-300 px-3 py-2
         group cursor-pointer hover:border-transparent custom-hover-effect
         '>
 
           <h1 className='text-main text-sm md:text-lg  mb-1 group-hover:text-stone-900'>START YOUR JOURNEY</h1>
-          <FontAwesomeIcon icon={faArrowRight}  className=' text-stone-300 group-hover:text-stone-900' />
+          <FontAwesomeIcon icon={faArrowRight} className=' text-stone-300 group-hover:text-stone-900' />
         </div>
 
       </div>
