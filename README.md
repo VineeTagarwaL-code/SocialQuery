@@ -17,6 +17,7 @@ SocialQuery is built using the tech stack :
 - [Bootstrap CSS](https://getbootstrap.com/) - Build fast, responsive sites in seconds ⌚
 
 # 📷 Preview
+![Untitled design](https://github.com/VineeTagarwaL-code/SocialQuery/assets/91052168/44d993eb-a4eb-4c9c-830b-7de9a8fcac95)
 
 # 🛠️ Local Development
 This environment is fully on your computer and requires each dependency (for example MongoDB) to be installed and set up, but it gives you the most flexibility for customisation.
